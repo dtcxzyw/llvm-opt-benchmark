@@ -43370,7 +43370,7 @@ common.resume:                                    ; preds = %240, %"_ZN63_$LT$al
   %.sroa.09.02.i.i = phi i64 [ 122, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h0226cdbda89511a5E.exit" ], [ %.sroa.014.0.i.i, %234 ]
   %224 = lshr i64 %.sroa.01.04.i.i, 1
   %225 = add nuw nsw i64 %224, %.sroa.03.03.i.i
-  %226 = icmp samesign ult i64 %225, 122
+  %226 = icmp ult i64 %225, 122
   call void @llvm.assume(i1 %226)
   %227 = getelementptr inbounds { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }, ptr @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.756, i64 %225
   %.val16.i.i = load ptr, ptr %227, align 8, !noalias !11983, !nonnull !9, !align !122, !noundef !9

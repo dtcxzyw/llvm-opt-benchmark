@@ -2119,7 +2119,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds i32, ptr %.val25.i, i64 %232
   %234 = load i32, ptr %233, align 4
-  %235 = zext nneg i32 %.02327.i to i64
+  %235 = sext i32 %.02327.i to i64
   %236 = getelementptr inbounds i32, ptr %.val230, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = sext i32 %237 to i64
@@ -2136,7 +2136,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %243 = getelementptr inbounds i32, ptr %.val230, i64 %indvars.iv35.i
   %244 = load i32, ptr %243, align 4
-  %245 = zext nneg i32 %spec.select.i to i64
+  %245 = sext i32 %spec.select.i to i64
   %246 = getelementptr inbounds i32, ptr %.val230, i64 %245
   %247 = load i32, ptr %246, align 4
   store i32 %247, ptr %243, align 4

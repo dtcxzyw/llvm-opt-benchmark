@@ -917,7 +917,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   %.03132.i = phi i32 [ %72, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %73 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv38.i
   %74 = load i32, ptr %73, align 4
-  %75 = zext nneg i32 %.03132.i to i64
+  %75 = sext i32 %.03132.i to i64
   %76 = getelementptr inbounds i32, ptr %6, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = icmp sgt i32 %74, %77
@@ -931,7 +931,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %80 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv41.i
   %81 = load i32, ptr %80, align 4
-  %82 = zext nneg i32 %spec.select.i to i64
+  %82 = sext i32 %spec.select.i to i64
   %83 = getelementptr inbounds i32, ptr %7, i64 %82
   %84 = load i32, ptr %83, align 4
   store i32 %84, ptr %80, align 4

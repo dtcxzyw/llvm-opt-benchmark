@@ -5491,7 +5491,7 @@ define internal fastcc i32 @_send_srun_resp_msg(ptr noundef nonnull %0, i32 noun
   br label %22
 
 22:                                               ; preds = %19, %16
-  %.not18 = icmp samesign ult i32 %.021, %.117
+  %.not18 = icmp slt i32 %.021, %.117
   br i1 %.not18, label %23, label %..loopexit.loopexit_crit_edge
 
 ..loopexit.loopexit_crit_edge:                    ; preds = %22

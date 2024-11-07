@@ -1520,7 +1520,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 16
   %117 = load i32, ptr %116, align 8
-  %118 = zext nneg i32 %.0108153 to i64
+  %118 = sext i32 %.0108153 to i64
   %119 = getelementptr inbounds ptr, ptr %2, i64 %118
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 16
@@ -1535,7 +1535,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
 ._crit_edge156:                                   ; preds = %.lr.ph155
   %125 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv200
   %126 = load ptr, ptr %125, align 8
-  %127 = zext nneg i32 %spec.select to i64
+  %127 = sext i32 %spec.select to i64
   %128 = getelementptr inbounds ptr, ptr %2, i64 %127
   %129 = load ptr, ptr %128, align 8
   store ptr %129, ptr %125, align 8

@@ -3540,14 +3540,13 @@ for.body146.preheader:                            ; preds = %invoke.cont137
   %sub.ptr.rhs.cast.i3421531 = ptrtoint ptr %140 to i64
   %sub.ptr.sub.i3431532 = sub i64 %sub.ptr.lhs.cast.i3411530, %sub.ptr.rhs.cast.i3421531
   %sub.ptr.div.i3441533 = sdiv exact i64 %sub.ptr.sub.i3431532, 24
-  %frombool139 = zext i1 %call138 to i8
   br label %for.body146
 
 for.body146:                                      ; preds = %for.body146.preheader, %for.end206
   %141 = phi ptr [ %226, %for.end206 ], [ null, %for.body146.preheader ]
   %sub.ptr.div.i3441540 = phi i64 [ %sub.ptr.div.i344, %for.end206 ], [ %sub.ptr.div.i3441533, %for.body146.preheader ]
   %142 = phi ptr [ %228, %for.end206 ], [ %140, %for.body146.preheader ]
-  %isCurrentlyInside.01539 = phi i8 [ %isCurrentlyInside.1, %for.end206 ], [ %frombool139, %for.body146.preheader ]
+  %isCurrentlyInside.01539 = phi i1 [ %isCurrentlyInside.1, %for.end206 ], [ %call138, %for.body146.preheader ]
   %storemerge1538 = phi i64 [ %add152, %for.end206 ], [ 0, %for.body146.preheader ]
   %intersections.sroa.0.21537 = phi ptr [ %intersections.sroa.0.6.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
   %intersections.sroa.36.21536 = phi ptr [ %intersections.sroa.36.3.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
@@ -3612,8 +3611,7 @@ for.body146:                                      ; preds = %for.body146.prehead
   %add13.i392 = fadd double %163, %173
   store double %add13.i392, ptr %z14.i393, align 8, !alias.scope !132
   store ptr %141, ptr %_M_finish.i.i394, align 8
-  %tobool159 = trunc i8 %isCurrentlyInside.01539 to i1
-  %call161 = invoke noundef zeroext i1 @_ZN6Assimp3IFC25IntersectsBoundaryProfileERK10aiVector3tIdES4_RKSt6vectorIS2_SaIS2_EEbRS5_ISt4pairImS2_ESaISB_EEb(ptr noundef nonnull align 8 dereferenceable(24) %e0147, ptr noundef nonnull align 8 dereferenceable(24) %e1151, ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i1 noundef zeroext %tobool159, ptr noundef nonnull align 8 dereferenceable(24) %intersected_boundary, i1 noundef zeroext false)
+  %call161 = invoke noundef zeroext i1 @_ZN6Assimp3IFC25IntersectsBoundaryProfileERK10aiVector3tIdES4_RKSt6vectorIS2_SaIS2_EEbRS5_ISt4pairImS2_ESaISB_EEb(ptr noundef nonnull align 8 dereferenceable(24) %e0147, ptr noundef nonnull align 8 dereferenceable(24) %e1151, ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i1 noundef zeroext %isCurrentlyInside.01539, ptr noundef nonnull align 8 dereferenceable(24) %intersected_boundary, i1 noundef zeroext false)
           to label %invoke.cont160 unwind label %lpad149.loopexit.split-lp.loopexit
 
 invoke.cont160:                                   ; preds = %for.body146
@@ -3868,8 +3866,8 @@ for.inc204:                                       ; preds = %.noexc469, %if.then
   br i1 %cmp195, label %for.body196, label %for.end206.loopexit, !llvm.loop !153
 
 for.end206.loopexit:                              ; preds = %for.inc204
-  %224 = trunc i64 %sub.ptr.sub.i437 to i8
-  %225 = lshr i8 %224, 5
+  %224 = and i64 %sub.ptr.sub.i437, 32
+  %225 = icmp ne i64 %224, 0
   br label %for.end206
 
 for.end206:                                       ; preds = %for.end206.loopexit, %if.end191
@@ -3877,8 +3875,8 @@ for.end206:                                       ; preds = %for.end206.loopexit
   %intersections.sroa.68.3.lcssa = phi ptr [ %intersections.sroa.68.21535, %if.end191 ], [ %intersections.sroa.68.4, %for.end206.loopexit ]
   %intersections.sroa.36.3.lcssa = phi ptr [ %intersections.sroa.36.21536, %if.end191 ], [ %intersections.sroa.36.10, %for.end206.loopexit ]
   %intersections.sroa.0.6.lcssa = phi ptr [ %intersections.sroa.0.21537, %if.end191 ], [ %intersections.sroa.0.7, %for.end206.loopexit ]
-  %sub.ptr.sub.i437.lcssa = phi i8 [ 0, %if.end191 ], [ %225, %for.end206.loopexit ]
-  %isCurrentlyInside.1 = xor i8 %sub.ptr.sub.i437.lcssa, %isCurrentlyInside.01539
+  %sub.ptr.sub.i437.lcssa = phi i1 [ false, %if.end191 ], [ %225, %for.end206.loopexit ]
+  %isCurrentlyInside.1 = xor i1 %isCurrentlyInside.01539, %sub.ptr.sub.i437.lcssa
   %227 = load ptr, ptr %blackside.sroa.gep1401, align 8
   %228 = load ptr, ptr %blackside, align 8
   %sub.ptr.lhs.cast.i341 = ptrtoint ptr %227 to i64

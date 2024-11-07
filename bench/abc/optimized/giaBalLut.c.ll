@@ -3393,7 +3393,7 @@ Vec_IntPush.exit78.i:                             ; preds = %457, %Vec_IntGrow.e
   %475 = sext i32 %474 to i64
   %476 = getelementptr inbounds i32, ptr %.val27.i.i84, i64 %475
   %477 = load i32, ptr %476, align 4
-  %478 = zext nneg i32 %.0252.i.i to i64
+  %478 = sext i32 %.0252.i.i to i64
   %479 = getelementptr inbounds i32, ptr %.val55.i, i64 %478
   %480 = load i32, ptr %479, align 4
   %481 = ashr i32 %480, 1
@@ -3411,7 +3411,7 @@ Vec_IntPush.exit78.i:                             ; preds = %457, %Vec_IntGrow.e
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
   %487 = getelementptr inbounds i32, ptr %.val55.i, i64 %indvars.iv10.i.i
   %488 = load i32, ptr %487, align 4
-  %489 = zext nneg i32 %spec.select.i.i to i64
+  %489 = sext i32 %spec.select.i.i to i64
   %490 = getelementptr inbounds i32, ptr %.val55.i, i64 %489
   %491 = load i32, ptr %490, align 4
   store i32 %491, ptr %487, align 4

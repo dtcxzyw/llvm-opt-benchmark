@@ -754,7 +754,7 @@ define hidden noundef nonnull ptr @_ZNK26ShenandoahRegionPartitions25partition_m
   br i1 %7, label %6, label %switch.lookup, !llvm.loop !12
 
 switch.lookup:                                    ; preds = %6
-  %14 = zext nneg i8 %spec.select.i to i64
+  %14 = sext i8 %spec.select.i to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
@@ -2028,7 +2028,7 @@ switch.lookup117:                                 ; preds = %64
   br i1 %76, label %75, label %switch.lookup120, !llvm.loop !12
 
 switch.lookup120:                                 ; preds = %75
-  %83 = zext nneg i8 %spec.select.i.i to i64
+  %83 = sext i8 %spec.select.i.i to i64
   %switch.gep121 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %83
   %switch.load122 = load ptr, ptr %switch.gep121, align 8
   %84 = load ptr, ptr %48, align 8
@@ -2112,7 +2112,7 @@ switch.lookup123:                                 ; preds = %105
   br i1 %116, label %115, label %switch.lookup126, !llvm.loop !12
 
 switch.lookup126:                                 ; preds = %115
-  %123 = zext nneg i8 %spec.select.i.i86 to i64
+  %123 = sext i8 %spec.select.i.i86 to i64
   %switch.gep127 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN17ShenandoahFreeSet15try_allocate_inEP20ShenandoahHeapRegionR22ShenandoahAllocRequestRb.4, i64 0, i64 %123
   %switch.load128 = load ptr, ptr %switch.gep127, align 8
   %124 = load ptr, ptr %96, align 8

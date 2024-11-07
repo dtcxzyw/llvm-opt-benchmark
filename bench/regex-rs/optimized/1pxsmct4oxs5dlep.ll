@@ -5643,7 +5643,7 @@ _ZN12regex_syntax7unicode14canonical_prop17hfd1549437477a757E.exit.thread: ; pre
   %.0201.i.i.i.i = phi i64 [ %.021.i.i.i.i, %23 ], [ 254, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h5b15d29981e3414dE.exit81.thread.preheader" ]
   %13 = lshr i64 %.03.i.i.i.i, 1
   %14 = add nuw nsw i64 %13, %.0192.i.i.i.i
-  %15 = icmp samesign ult i64 %14, 254
+  %15 = icmp ult i64 %14, 254
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.3345, i64 %14
   %.val23.i.i.i.i = load ptr, ptr %16, align 8, !noalias !93, !nonnull !5, !align !102, !noundef !5
@@ -6027,7 +6027,7 @@ common.resume:                                    ; preds = %446, %398, %355, %9
   %.0201.i.i.i.i.i = phi i64 [ 254, %109 ], [ %.021.i.i.i.i.i, %125 ]
   %115 = lshr i64 %.03.i.i.i.i.i, 1
   %116 = add nuw nsw i64 %115, %.0192.i.i.i.i.i
-  %117 = icmp samesign ult i64 %116, 254
+  %117 = icmp ult i64 %116, 254
   tail call void @llvm.assume(i1 %117)
   %118 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.3345, i64 %116
   %.val23.i.i.i.i.i = load ptr, ptr %118, align 8, !noalias !155, !nonnull !5, !align !102, !noundef !5
@@ -6096,7 +6096,7 @@ common.resume:                                    ; preds = %446, %398, %355, %9
   %.0202.i.i.i.i.i = phi i64 [ %.021.i.i.i.i100.i, %155 ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit95.thread.i.preheader" ]
   %145 = lshr i64 %.04.i.i.i.i.i, 1
   %146 = add nuw nsw i64 %145, %.0193.i.i.i.i.i
-  %147 = icmp samesign ult i64 %146, 7
+  %147 = icmp ult i64 %146, 7
   tail call void @llvm.assume(i1 %147)
   %148 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 %146
   %.val23.i.i.i.i96.i = load ptr, ptr %148, align 8, !noalias !181, !nonnull !5, !align !102, !noundef !5
@@ -6408,7 +6408,7 @@ default.unreachable:                              ; preds = %253
   %.02026.i.i.i.i.i = phi i64 [ 60, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit10.thread.i" ], [ %.021.i.i.i.i.i69, %275 ]
   %265 = lshr i64 %.028.i.i.i.i.i, 1
   %266 = add nuw nsw i64 %265, %.01927.i.i.i.i.i
-  %267 = icmp samesign ult i64 %266, 60
+  %267 = icmp ult i64 %266, 60
   call void @llvm.assume(i1 %267)
   %268 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4485, i64 %266
   %.val23.i.i.i.i.i65 = load ptr, ptr %268, align 8, !alias.scope !288, !noalias !289, !nonnull !5, !align !102, !noundef !5
@@ -6535,7 +6535,7 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   %.02026.i.i.i.i = phi i64 [ 37, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit7.thread.i" ], [ %.021.i.i.i.i, %311 ]
   %301 = lshr i64 %.028.i.i.i.i, 1
   %302 = add nuw nsw i64 %301, %.01927.i.i.i.i
-  %303 = icmp samesign ult i64 %302, 37
+  %303 = icmp ult i64 %302, 37
   call void @llvm.assume(i1 %303), !noalias !317
   %304 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4188, i64 %302
   %.val23.i.i.i.i = load ptr, ptr %304, align 8, !alias.scope !347, !noalias !348, !nonnull !5, !align !102, !noundef !5
@@ -6579,7 +6579,7 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   %.02026.i.i.i.i.i77 = phi i64 [ 37, %318 ], [ %.021.i.i.i.i.i82, %330 ]
   %320 = lshr i64 %.028.i.i.i.i.i75, 1
   %321 = add nuw nsw i64 %320, %.01927.i.i.i.i.i76
-  %322 = icmp samesign ult i64 %321, 37
+  %322 = icmp ult i64 %321, 37
   call void @llvm.assume(i1 %322), !noalias !365
   %323 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4188, i64 %321
   %.val23.i.i.i.i.i78 = load ptr, ptr %323, align 8, !alias.scope !371, !noalias !372, !nonnull !5, !align !102, !noundef !5
@@ -6712,7 +6712,7 @@ _ZN12regex_syntax7unicode6gencat17h7a12ab031675e367E.exit: ; preds = %297, %299,
   %.02026.i.i.i.i.i89 = phi i64 [ 163, %360 ], [ %.021.i.i.i.i.i94, %372 ]
   %362 = lshr i64 %.028.i.i.i.i.i87, 1
   %363 = add nuw nsw i64 %362, %.01927.i.i.i.i.i88
-  %364 = icmp samesign ult i64 %363, 163
+  %364 = icmp ult i64 %363, 163
   call void @llvm.assume(i1 %364)
   %365 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4354, i64 %363
   %.val23.i.i.i.i.i90 = load ptr, ptr %365, align 8, !alias.scope !413, !noalias !414, !nonnull !5, !align !102, !noundef !5
@@ -6878,7 +6878,7 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %3
   %.02026.i.i.i.i.i115 = phi i64 [ 163, %408 ], [ %.021.i.i.i.i.i120, %421 ]
   %411 = lshr i64 %.028.i.i.i.i.i113, 1
   %412 = add nuw nsw i64 %411, %.01927.i.i.i.i.i114
-  %413 = icmp samesign ult i64 %412, 163
+  %413 = icmp ult i64 %412, 163
   call void @llvm.assume(i1 %413)
   %414 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4425, i64 %412
   %.val23.i.i.i.i.i116 = load ptr, ptr %414, align 8, !alias.scope !492, !noalias !493, !nonnull !5, !align !102, !noundef !5
@@ -7222,7 +7222,7 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   br i1 %or.cond.i, label %_ZN12regex_syntax7unicode17is_word_character3imp17h708cd24619ee543bE.llvm.16611923841924356903.exit, label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.i.preheader"
 
 ._crit_edge.i.i:                                  ; preds = %17
-  %10 = icmp samesign ult i64 %.022.i.i, 772
+  %10 = icmp ult i64 %.022.i.i, 772
   tail call void @llvm.assume(i1 %10)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit.i"
 
@@ -7231,8 +7231,8 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %.01927.i.i = phi i64 [ %.022.i.i, %17 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.i.preheader" ]
   %.02026.i.i = phi i64 [ %.021.i.i, %17 ], [ 771, %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.i.preheader" ]
   %11 = lshr i64 %.028.i.i, 1
-  %12 = add nuw nsw i64 %11, %.01927.i.i
-  %13 = icmp samesign ult i64 %12, 771
+  %12 = add i64 %11, %.01927.i.i
+  %13 = icmp ult i64 %12, 771
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds { i32, i32 }, ptr @anon.ee024262027212e939cdd9996d089225.2960.llvm.16611923841924356903, i64 %12
   %.val23.i.i = load i32, ptr %14, align 4, !range !4, !alias.scope !579, !noalias !582, !noundef !5
@@ -7249,8 +7249,8 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %18 = select i1 %.not.i.i.i, i1 %.not2.i.i.i, i1 false
   %19 = add nuw nsw i64 %12, 1
   %.022.i.i = select i1 %18, i64 %19, i64 %.01927.i.i
-  %20 = sub nsw i64 %.021.i.i, %.022.i.i
-  %21 = icmp samesign ult i64 %.022.i.i, %.021.i.i
+  %20 = sub i64 %.021.i.i, %.022.i.i
+  %21 = icmp ult i64 %.022.i.i, %.021.i.i
   br i1 %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.i", label %._crit_edge.i.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.i", %._crit_edge.i.i
@@ -7284,7 +7284,7 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   br i1 %or.cond, label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.preheader"
 
 ._crit_edge.i:                                    ; preds = %17
-  %10 = icmp samesign ult i64 %.022.i, 772
+  %10 = icmp ult i64 %.022.i, 772
   tail call void @llvm.assume(i1 %10)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit"
 
@@ -7293,8 +7293,8 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %.01927.i = phi i64 [ %.022.i, %17 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.preheader" ]
   %.02026.i = phi i64 [ %.021.i, %17 ], [ 771, %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4.preheader" ]
   %11 = lshr i64 %.028.i, 1
-  %12 = add nuw nsw i64 %11, %.01927.i
-  %13 = icmp samesign ult i64 %12, 771
+  %12 = add i64 %11, %.01927.i
+  %13 = icmp ult i64 %12, 771
   tail call void @llvm.assume(i1 %13)
   %14 = getelementptr inbounds { i32, i32 }, ptr @anon.ee024262027212e939cdd9996d089225.2960.llvm.16611923841924356903, i64 %12
   %.val23.i = load i32, ptr %14, align 4, !range !4, !alias.scope !584, !noalias !587, !noundef !5
@@ -7311,8 +7311,8 @@ define hidden noundef range(i8 0, 2) i8 @_ZN12regex_syntax7unicode17is_word_char
   %18 = select i1 %.not.i.i, i1 %.not2.i.i, i1 false
   %19 = add nuw nsw i64 %12, 1
   %.022.i = select i1 %18, i64 %19, i64 %.01927.i
-  %20 = sub nsw i64 %.021.i, %.022.i
-  %21 = icmp samesign ult i64 %.022.i, %.021.i
+  %20 = sub i64 %.021.i, %.022.i
+  %21 = icmp ult i64 %.022.i, %.021.i
   br i1 %21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4", label %._crit_edge.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb4b740f7f4bf3c6fE.llvm.16611923841924356903.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h1be4e78b682238f2E.llvm.16611923841924356903.exit.thread4", %._crit_edge.i
@@ -7357,7 +7357,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hda57f
   %.0202.i.i.i.i = phi i64 [ %.021.i.i.i.i, %17 ], [ 7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit27.thread.preheader" ]
   %7 = lshr i64 %.04.i.i.i.i, 1
   %8 = add nuw nsw i64 %7, %.0193.i.i.i.i
-  %9 = icmp samesign ult i64 %8, 7
+  %9 = icmp ult i64 %8, 7
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 %8
   %.val23.i.i.i.i = load ptr, ptr %10, align 8, !noalias !601, !nonnull !5, !align !102, !noundef !5
@@ -7464,7 +7464,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_script17hb0626
   %.0202.i.i.i.i = phi i64 [ 7, %3 ], [ %.021.i.i.i.i, %15 ]
   %5 = lshr i64 %.04.i.i.i.i, 1
   %6 = add nuw nsw i64 %5, %.0193.i.i.i.i
-  %7 = icmp samesign ult i64 %6, 7
+  %7 = icmp ult i64 %6, 7
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4118, i64 %6
   %.val23.i.i.i.i = load ptr, ptr %8, align 8, !noalias !641, !nonnull !5, !align !102, !noundef !5
@@ -7578,7 +7578,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode3gcb17hb8ef32ba6d8eed21E(p
   %.02026.i.i.i.i = phi i64 [ 13, %3 ], [ %.021.i.i.i.i, %16 ]
   %6 = lshr i64 %.028.i.i.i.i, 1
   %7 = add nuw nsw i64 %6, %.01927.i.i.i.i
-  %8 = icmp samesign ult i64 %7, 13
+  %8 = icmp ult i64 %7, 13
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4498, i64 %7
   %.val23.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !693, !noalias !694, !nonnull !5, !align !102, !noundef !5
@@ -7656,7 +7656,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode2wb17hc0a5a8cc8ed468edE(pt
   %.02026.i.i.i.i = phi i64 [ 18, %3 ], [ %.021.i.i.i.i, %16 ]
   %6 = lshr i64 %.028.i.i.i.i, 1
   %7 = add nuw nsw i64 %6, %.01927.i.i.i.i
-  %8 = icmp samesign ult i64 %7, 18
+  %8 = icmp ult i64 %7, 18
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4513, i64 %7
   %.val23.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !721, !noalias !722, !nonnull !5, !align !102, !noundef !5
@@ -7734,7 +7734,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode2sb17h2baa8a68179ef89cE(pt
   %.02026.i.i.i.i = phi i64 [ 14, %3 ], [ %.021.i.i.i.i, %16 ]
   %6 = lshr i64 %.028.i.i.i.i, 1
   %7 = add nuw nsw i64 %6, %.01927.i.i.i.i
-  %8 = icmp samesign ult i64 %7, 14
+  %8 = icmp ult i64 %7, 14
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.ee024262027212e939cdd9996d089225.4526, i64 %7
   %.val23.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !749, !noalias !750, !nonnull !5, !align !102, !noundef !5

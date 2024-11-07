@@ -17793,7 +17793,7 @@ define hidden noundef zeroext i1 @_ZN20unicode_segmentation4word16has_alphanumer
   %.02026.i.i.i.i.i = phi i64 [ %.021.i.i.i.i.i, %55 ], [ 733, %47 ]
   %49 = lshr i64 %.028.i.i.i.i.i, 1
   %50 = add nuw nsw i64 %49, %.01927.i.i.i.i.i
-  %51 = icmp samesign ult i64 %50, 733
+  %51 = icmp ult i64 %50, 733
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds { i32, i32 }, ptr @anon.db70647216840ea9fd0320153731fc7a.58, i64 %50
   %.val23.i.i.i.i.i = load i32, ptr %52, align 4, !range !7215, !alias.scope !7216, !noalias !7219, !noundef !4
@@ -17836,7 +17836,7 @@ _ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.th
   %.02026.i.i5.i.i.i = phi i64 [ %.021.i.i12.i.i.i, %70 ], [ 137, %_ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.thread3.i.i.i ]
   %64 = lshr i64 %.028.i.i3.i.i.i, 1
   %65 = add nuw nsw i64 %64, %.01927.i.i4.i.i.i
-  %66 = icmp samesign ult i64 %65, 137
+  %66 = icmp ult i64 %65, 137
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds { i32, i32 }, ptr @anon.db70647216840ea9fd0320153731fc7a.57, i64 %65
   %.val23.i.i6.i.i.i = load i32, ptr %67, align 4, !range !7215, !alias.scope !7221, !noalias !7224, !noundef !4

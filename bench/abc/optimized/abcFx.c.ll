@@ -393,7 +393,7 @@ Vec_IntGrow.exit.i60:                             ; preds = %139, %137
   %.024.i = phi i32 [ %162, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %163 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv29.i
   %164 = load i32, ptr %163, align 4
-  %165 = zext nneg i32 %.024.i to i64
+  %165 = sext i32 %.024.i to i64
   %166 = getelementptr inbounds i32, ptr %158, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = icmp slt i32 %164, %167
@@ -407,7 +407,7 @@ Vec_IntGrow.exit.i60:                             ; preds = %139, %137
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %170 = getelementptr inbounds i32, ptr %158, i64 %indvars.iv32.i
   %171 = load i32, ptr %170, align 4
-  %172 = zext nneg i32 %spec.select.i to i64
+  %172 = sext i32 %spec.select.i to i64
   %173 = getelementptr inbounds i32, ptr %158, i64 %172
   %174 = load i32, ptr %173, align 4
   store i32 %174, ptr %170, align 4

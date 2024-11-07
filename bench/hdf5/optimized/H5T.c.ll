@@ -11969,7 +11969,7 @@ H5T__init_path_table.exit:                        ; preds = %32, %38
   %.123.i = select i1 %98, i32 %81, i32 %.02231.i
   %.1.i = select i1 %98, i1 %.032.i, i1 %spec.select29.i
   %101 = icmp ne i32 %.120.i, 0
-  %102 = icmp samesign ult i32 %.125.i, %.123.i
+  %102 = icmp slt i32 %.125.i, %.123.i
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.lr.ph.i, label %H5T__path_table_search.exit
 
@@ -12559,7 +12559,7 @@ H5T__path_find_init_new_path.exit.thread:         ; preds = %.thread217.thread.i
   %.123.i109 = select i1 %385, i32 %368, i32 %.02231.i103
   %.1.i110 = select i1 %385, i1 %.032.i102, i1 %spec.select29.i107
   %388 = icmp ne i32 %.120.i105, 0
-  %389 = icmp samesign ult i32 %.125.i108, %.123.i109
+  %389 = icmp slt i32 %.125.i108, %.123.i109
   %390 = select i1 %388, i1 %389, i1 false
   br i1 %390, label %.lr.ph.i101, label %H5T__path_table_search.exit111
 
@@ -12851,7 +12851,7 @@ define zeroext i1 @H5T_noop_conv(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.123.i = select i1 %40, i32 %23, i32 %.02231.i
   %.1.i = select i1 %40, i1 %.032.i, i1 %spec.select29.i
   %43 = icmp ne i32 %.120.i, 0
-  %44 = icmp samesign ult i32 %.125.i, %.123.i
+  %44 = icmp slt i32 %.125.i, %.123.i
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %.lr.ph.i, label %H5T__path_table_search.exit
 

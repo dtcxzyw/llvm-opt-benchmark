@@ -598,7 +598,7 @@ define void @Aig_RManSortNums(ptr nocapture noundef %0, i32 noundef %1) local_un
   %.02124 = phi i32 [ %5, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv29
   %7 = load i32, ptr %6, align 4
-  %8 = zext nneg i32 %.02124 to i64
+  %8 = sext i32 %.02124 to i64
   %9 = getelementptr inbounds i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %7, %10
@@ -611,7 +611,7 @@ define void @Aig_RManSortNums(ptr nocapture noundef %0, i32 noundef %1) local_un
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv32
   %14 = load i32, ptr %13, align 4
-  %15 = zext nneg i32 %spec.select to i64
+  %15 = sext i32 %spec.select to i64
   %16 = getelementptr inbounds i32, ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %13, align 4
@@ -747,7 +747,7 @@ Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %1
   %.02124.i = phi i32 [ %40, %.lr.ph.preheader.i ], [ %spec.select.i34, %.lr.ph.i ]
   %41 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv29.i
   %42 = load i32, ptr %41, align 4
-  %43 = zext nneg i32 %.02124.i to i64
+  %43 = sext i32 %.02124.i to i64
   %44 = getelementptr inbounds i32, ptr %39, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %42, %45
@@ -761,7 +761,7 @@ Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %1
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %48 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv32.i
   %49 = load i32, ptr %48, align 4
-  %50 = zext nneg i32 %spec.select.i34 to i64
+  %50 = sext i32 %spec.select.i34 to i64
   %51 = getelementptr inbounds i32, ptr %39, i64 %50
   %52 = load i32, ptr %51, align 4
   store i32 %52, ptr %48, align 4
@@ -823,7 +823,7 @@ Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, 
   %.02124.i53 = phi i32 [ %79, %.lr.ph.preheader.i47 ], [ %spec.select.i54, %.lr.ph.i51 ]
   %80 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv29.i52
   %81 = load i32, ptr %80, align 4
-  %82 = zext nneg i32 %.02124.i53 to i64
+  %82 = sext i32 %.02124.i53 to i64
   %83 = getelementptr inbounds i32, ptr %78, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %81, %84
@@ -837,7 +837,7 @@ Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, 
   %indvars.iv.next33.i50 = add nuw nsw i64 %indvars.iv32.i48, 1
   %87 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv32.i48
   %88 = load i32, ptr %87, align 4
-  %89 = zext nneg i32 %spec.select.i54 to i64
+  %89 = sext i32 %spec.select.i54 to i64
   %90 = getelementptr inbounds i32, ptr %78, i64 %89
   %91 = load i32, ptr %90, align 4
   store i32 %91, ptr %87, align 4

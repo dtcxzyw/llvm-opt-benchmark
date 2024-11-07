@@ -2689,7 +2689,7 @@ bbuf_init.exit.i:                                 ; preds = %9
   %27 = add nuw nsw i32 %21, 1
   %.1163 = select i1 %26, i32 %.0162202, i32 %21
   %.1159 = select i1 %26, i32 %27, i32 %.0158203
-  %28 = icmp samesign ult i32 %.1159, %.1163
+  %28 = icmp slt i32 %.1159, %.1163
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread, %15

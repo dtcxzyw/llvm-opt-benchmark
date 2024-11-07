@@ -4244,9 +4244,9 @@ for.body27.us.us:                                 ; preds = %for.body27.us.us, %
   br i1 %exitcond215.not, label %for.cond23.for.end_crit_edge.us.us, label %for.body27.us.us, !llvm.loop !46
 
 for.cond23.for.end_crit_edge.us.us:               ; preds = %for.body27.us.us
-  %cmp30.us.us = icmp samesign ult i32 %add29.us.us, %best_filter_val.0190.us.us
+  %cmp30.us.us = icmp slt i32 %add29.us.us, %best_filter_val.0190.us.us
   %spec.select76.us.us = select i1 %cmp30.us.us, i32 %filter_type.1188.us.us, i32 %best_filter.0189.us.us
-  %spec.select77.us.us = tail call i32 @llvm.umin.i32(i32 %add29.us.us, i32 %best_filter_val.0190.us.us)
+  %spec.select77.us.us = tail call i32 @llvm.smin.i32(i32 %add29.us.us, i32 %best_filter_val.0190.us.us)
   %inc35.us.us = add nuw nsw i32 %filter_type.1188.us.us, 1
   %exitcond216.not = icmp eq i32 %inc35.us.us, 5
   br i1 %exitcond216.not, label %for.end36.split.us.us, label %for.body22.us.us, !llvm.loop !47

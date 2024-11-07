@@ -184,7 +184,7 @@ define void @Dau_DsdPermute(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = alloca [16 x i32], align 16
   %3 = load i8, ptr %0, align 1
   %.not9.i = icmp eq i8 %3, 0
-  br i1 %.not9.i, label %Dau_DsdFindVarNum.exit, label %.lr.ph.i
+  br i1 %.not9.i, label %.lr.ph.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %4 = phi i8 [ %10, %.lr.ph.i ], [ %3, %1 ]
@@ -198,19 +198,19 @@ define void @Dau_DsdPermute(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %9 = getelementptr inbounds i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %Dau_DsdFindVarNum.exit, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+Dau_DsdFindVarNum.exit:                           ; preds = %.lr.ph.i
   %11 = add nuw nsw i32 %.1.i, 1
-  br label %Dau_DsdFindVarNum.exit
+  br label %.lr.ph.preheader.i
 
-Dau_DsdFindVarNum.exit:                           ; preds = %1, %._crit_edge.loopexit.i
-  %.0.lcssa.i = phi i32 [ 1, %1 ], [ %11, %._crit_edge.loopexit.i ]
-  %wide.trip.count.i = zext nneg i32 %.0.lcssa.i to i64
+.lr.ph.preheader.i:                               ; preds = %Dau_DsdFindVarNum.exit, %1
+  %.0.lcssa.i14 = phi i32 [ %11, %Dau_DsdFindVarNum.exit ], [ 1, %1 ]
+  %wide.trip.count.i = zext nneg i32 %.0.lcssa.i14 to i64
   br label %.lr.ph.i11
 
-.lr.ph.i11:                                       ; preds = %.lr.ph.i11, %Dau_DsdFindVarNum.exit
-  %indvars.iv.i = phi i64 [ 0, %Dau_DsdFindVarNum.exit ], [ %indvars.iv.next.i, %.lr.ph.i11 ]
+.lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i11 ]
   %12 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %13, ptr %12, align 4
@@ -221,7 +221,7 @@ Dau_DsdFindVarNum.exit:                           ; preds = %1, %._crit_edge.loo
 .lr.ph21.i:                                       ; preds = %.lr.ph.i11, %.lr.ph21.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %.lr.ph21.i ], [ 0, %.lr.ph.i11 ]
   %14 = tail call i32 @rand() #25
-  %15 = srem i32 %14, %.0.lcssa.i
+  %15 = srem i32 %14, %.0.lcssa.i14
   %16 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv23.i
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %15 to i64
@@ -234,40 +234,40 @@ Dau_DsdFindVarNum.exit:                           ; preds = %1, %._crit_edge.loo
   br i1 %exitcond27.not.i, label %Dau_DsdGenRandPerm.exit, label %.lr.ph21.i, !llvm.loop !8
 
 Dau_DsdGenRandPerm.exit:                          ; preds = %.lr.ph21.i
-  %21 = load i8, ptr %0, align 1
-  %.not12 = icmp eq i8 %21, 0
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.pre = load i8, ptr %0, align 1
+  %.not15 = icmp eq i8 %.pre, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Dau_DsdGenRandPerm.exit
-  %22 = add nuw nsw i32 %.0.lcssa.i, 97
-  br label %23
+  %21 = add nuw nsw i32 %.0.lcssa.i14, 97
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %36
-  %24 = phi i8 [ %21, %.lr.ph ], [ %38, %36 ]
-  %25 = phi ptr [ %0, %.lr.ph ], [ %37, %36 ]
-  %26 = sext i8 %24 to i32
-  %27 = icmp sgt i8 %24, 96
-  %28 = icmp sgt i32 %22, %26
-  %or.cond = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond, label %29, label %36
+22:                                               ; preds = %.lr.ph, %35
+  %23 = phi i8 [ %.pre, %.lr.ph ], [ %37, %35 ]
+  %24 = phi ptr [ %0, %.lr.ph ], [ %36, %35 ]
+  %25 = sext i8 %23 to i32
+  %26 = icmp sgt i8 %23, 96
+  %27 = icmp sgt i32 %21, %25
+  %or.cond = select i1 %26, i1 %27, i1 false
+  br i1 %or.cond, label %28, label %35
 
-29:                                               ; preds = %23
-  %30 = add nsw i32 %26, -97
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = trunc i32 %33 to i8
-  %35 = add i8 %34, 97
-  store i8 %35, ptr %25, align 1
-  br label %36
+28:                                               ; preds = %22
+  %29 = add nsw i32 %25, -97
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = trunc i32 %32 to i8
+  %34 = add i8 %33, 97
+  store i8 %34, ptr %24, align 1
+  br label %35
 
-36:                                               ; preds = %29, %23
-  %37 = getelementptr inbounds i8, ptr %25, i64 1
-  %38 = load i8, ptr %37, align 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !9
+35:                                               ; preds = %28, %22
+  %36 = getelementptr inbounds i8, ptr %24, i64 1
+  %37 = load i8, ptr %36, align 1
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %36, %Dau_DsdGenRandPerm.exit
+._crit_edge:                                      ; preds = %35, %Dau_DsdGenRandPerm.exit
   ret void
 }
 
@@ -3259,7 +3259,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
   %.03132.i = phi i32 [ %22, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %23 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv38.i
   %24 = load i32, ptr %23, align 4
-  %25 = zext nneg i32 %.03132.i to i64
+  %25 = sext i32 %.03132.i to i64
   %26 = getelementptr inbounds i32, ptr %7, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %24, %27
@@ -3273,7 +3273,7 @@ define i32 @Dau_DsdCheck1Step(ptr nocapture noundef readonly %0, ptr noundef %1,
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %30 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv41.i
   %31 = load i32, ptr %30, align 4
-  %32 = zext nneg i32 %spec.select.i to i64
+  %32 = sext i32 %spec.select.i to i64
   %33 = getelementptr inbounds i32, ptr %6, i64 %32
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %30, align 4

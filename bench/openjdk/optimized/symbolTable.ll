@@ -2258,7 +2258,7 @@ define hidden void @_ZN11SymbolTable22print_table_statisticsEP12outputStream(ptr
 ._crit_edge29.i:                                  ; preds = %15, %11
   %.0.i = phi i32 [ %21, %15 ], [ 1, %11 ]
   %22 = add nuw nsw i32 %.0.i, %.01925.i
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %.02024.i, i32 %.0.i)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %.02024.i, i32 %.0.i)
   %exitcond.not.i = icmp eq i64 %.pre.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE22print_table_statisticsEP12outputStreamS1_.exit, label %11, !llvm.loop !26
 
@@ -2309,7 +2309,7 @@ _ZN16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET
 ._crit_edge29.i11:                                ; preds = %33, %29
   %.0.i12 = phi i32 [ %39, %33 ], [ 1, %29 ]
   %40 = add nuw nsw i32 %.0.i12, %.01925.i7
-  %spec.select.i13 = call i32 @llvm.umax.i32(i32 %.02024.i8, i32 %.0.i12)
+  %spec.select.i13 = call i32 @llvm.smax.i32(i32 %.02024.i8, i32 %.0.i12)
   %exitcond.not.i14 = icmp eq i64 %.pre.i10, %wide.trip.count.i5
   br i1 %exitcond.not.i14, label %_ZN16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE22print_table_statisticsEP12outputStreamS1_.exit17, label %29, !llvm.loop !26
 
@@ -6045,7 +6045,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

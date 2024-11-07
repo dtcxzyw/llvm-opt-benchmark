@@ -367,7 +367,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %2 = load i16, ptr %value, align 8
   %conv = zext i16 %2 to i32
   %add = add nuw nsw i32 %conv, 1
-  %cond = call i32 @llvm.umax.i32(i32 %nbits.022, i32 %add)
+  %cond = call i32 @llvm.smax.i32(i32 %nbits.022, i32 %add)
   %3 = load ptr, ptr %l.023, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %for.end, label %for.body, !llvm.loop !10
@@ -715,7 +715,7 @@ declare void @numa_bitmask_free(ptr noundef) local_unnamed_addr #1
 declare i32 @slow_bitmap_empty(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

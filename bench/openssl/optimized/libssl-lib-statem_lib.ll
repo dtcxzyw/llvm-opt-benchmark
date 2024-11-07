@@ -4389,13 +4389,13 @@ if.end.i55:                                       ; preds = %while.body
   br i1 %tobool.not.i60, label %if.then1.i69, label %if.end3.i61
 
 if.then1.i69:                                     ; preds = %if.end.i55
-  %cmp2.i70 = icmp samesign ult i32 %or.i.i, %best_vers.0.ph159
+  %cmp2.i70 = icmp slt i32 %or.i.i, %best_vers.0.ph159
   br i1 %cmp2.i70, label %version_cmp.exit72, label %if.end45
 
 if.end3.i61:                                      ; preds = %if.end.i55
   %cmp4.i62 = icmp eq i32 %or.i.i, 256
   %cond5.i63 = select i1 %cmp4.i62, i32 65280, i32 %or.i.i
-  %cmp11.i66 = icmp samesign ugt i32 %cond5.i63, %cond10.i65
+  %cmp11.i66 = icmp sgt i32 %cond5.i63, %cond10.i65
   br i1 %cmp11.i66, label %version_cmp.exit72, label %if.end45
 
 version_cmp.exit72:                               ; preds = %if.then1.i69, %if.end3.i61, %while.body

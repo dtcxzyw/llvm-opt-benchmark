@@ -410,7 +410,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   br i1 %exitcond.not.i, label %97, label %66, !llvm.loop !10
 
 97:                                               ; preds = %66
-  %98 = zext nneg i32 %spec.select.i to i64
+  %98 = sext i32 %spec.select.i to i64
   %99 = getelementptr inbounds i32, ptr %4, i64 %98
   %100 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
   %101 = load i32, ptr %99, align 4

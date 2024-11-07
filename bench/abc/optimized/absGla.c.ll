@@ -2682,7 +2682,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %.val25.i, i64 %47
   %49 = load i32, ptr %48, align 4
-  %50 = zext nneg i32 %.02327.i to i64
+  %50 = sext i32 %.02327.i to i64
   %51 = getelementptr inbounds i32, ptr %5, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
@@ -2699,7 +2699,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %58 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv35.i
   %59 = load i32, ptr %58, align 4
-  %60 = zext nneg i32 %spec.select.i to i64
+  %60 = sext i32 %spec.select.i to i64
   %61 = getelementptr inbounds i32, ptr %5, i64 %60
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %58, align 4

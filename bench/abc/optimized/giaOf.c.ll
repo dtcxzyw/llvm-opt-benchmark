@@ -6086,7 +6086,7 @@ define void @Of_ManComputeForwardDirconCut(ptr nocapture noundef readonly %0, i3
   %.03132.i = phi i32 [ %34, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %35 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv38.i
   %36 = load i32, ptr %35, align 4
-  %37 = zext nneg i32 %.03132.i to i64
+  %37 = sext i32 %.03132.i to i64
   %38 = getelementptr inbounds i32, ptr %6, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %36, %39
@@ -6100,7 +6100,7 @@ define void @Of_ManComputeForwardDirconCut(ptr nocapture noundef readonly %0, i3
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %42 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv41.i
   %43 = load i32, ptr %42, align 4
-  %44 = zext nneg i32 %spec.select.i to i64
+  %44 = sext i32 %spec.select.i to i64
   %45 = getelementptr inbounds i32, ptr %7, i64 %44
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %42, align 4

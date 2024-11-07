@@ -5380,7 +5380,7 @@ Vec_IntPush.exit310:                              ; preds = %.Vec_IntGrow.exit10
   %.03132.i = phi i32 [ %130, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %131 = getelementptr inbounds i32, ptr %.val303, i64 %indvars.iv38.i
   %132 = load i32, ptr %131, align 4
-  %133 = zext nneg i32 %.03132.i to i64
+  %133 = sext i32 %.03132.i to i64
   %134 = getelementptr inbounds i32, ptr %.val303, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = icmp slt i32 %132, %135
@@ -5394,7 +5394,7 @@ Vec_IntPush.exit310:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %138 = getelementptr inbounds i32, ptr %.val302, i64 %indvars.iv41.i
   %139 = load i32, ptr %138, align 4
-  %140 = zext nneg i32 %spec.select.i to i64
+  %140 = sext i32 %spec.select.i to i64
   %141 = getelementptr inbounds i32, ptr %.val302, i64 %140
   %142 = load i32, ptr %141, align 4
   store i32 %142, ptr %138, align 4

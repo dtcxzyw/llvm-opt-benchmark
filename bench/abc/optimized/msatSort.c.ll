@@ -47,7 +47,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %7 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %indvars.iv29.i
   %8 = load ptr, ptr %7, align 8
   %9 = tail call float @Msat_ClauseReadActivity(ptr noundef %8) #2
-  %10 = zext nneg i32 %.024.i to i64
+  %10 = sext i32 %.024.i to i64
   %11 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call float @Msat_ClauseReadActivity(ptr noundef %12) #2
@@ -62,7 +62,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %16 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %indvars.iv32.i
   %17 = load ptr, ptr %16, align 8
-  %18 = zext nneg i32 %.1.i to i64
+  %18 = sext i32 %.1.i to i64
   %19 = getelementptr inbounds ptr, ptr %.tr.lcssa, i64 %18
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %16, align 8
@@ -162,7 +162,7 @@ define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) 
   %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv29
   %7 = load ptr, ptr %6, align 8
   %8 = tail call float @Msat_ClauseReadActivity(ptr noundef %7) #2
-  %9 = zext nneg i32 %.024 to i64
+  %9 = sext i32 %.024 to i64
   %10 = getelementptr inbounds ptr, ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call float @Msat_ClauseReadActivity(ptr noundef %11) #2
@@ -176,7 +176,7 @@ define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) 
 ._crit_edge:                                      ; preds = %.lr.ph
   %15 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv32
   %16 = load ptr, ptr %15, align 8
-  %17 = zext nneg i32 %.1 to i64
+  %17 = sext i32 %.1 to i64
   %18 = getelementptr inbounds ptr, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %15, align 8

@@ -1414,7 +1414,7 @@ define void @Acec_MatchBoxesSort(ptr nocapture noundef %0, i32 noundef %1, ptr n
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %8, 1
   %14 = xor i32 %12, %13
-  %15 = zext nneg i32 %.02326 to i64
+  %15 = sext i32 %.02326 to i64
   %16 = getelementptr inbounds i32, ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = ashr i32 %17, 1
@@ -1433,7 +1433,7 @@ define void @Acec_MatchBoxesSort(ptr nocapture noundef %0, i32 noundef %1, ptr n
 ._crit_edge:                                      ; preds = %.lr.ph
   %26 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv34
   %27 = load i32, ptr %26, align 4
-  %28 = zext nneg i32 %spec.select to i64
+  %28 = sext i32 %spec.select to i64
   %29 = getelementptr inbounds i32, ptr %0, i64 %28
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %26, align 4
@@ -3050,7 +3050,7 @@ define i32 @Acec_MatchBoxes(ptr nocapture noundef %0, ptr nocapture noundef %1) 
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %29, 1
   %35 = xor i32 %33, %34
-  %36 = zext nneg i32 %.02326.i to i64
+  %36 = sext i32 %.02326.i to i64
   %37 = getelementptr inbounds i32, ptr %.val144, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = ashr i32 %38, 1
@@ -3070,7 +3070,7 @@ define i32 @Acec_MatchBoxes(ptr nocapture noundef %0, ptr nocapture noundef %1) 
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %47 = getelementptr inbounds i32, ptr %.val144, i64 %indvars.iv34.i
   %48 = load i32, ptr %47, align 4
-  %49 = zext nneg i32 %spec.select.i to i64
+  %49 = sext i32 %spec.select.i to i64
   %50 = getelementptr inbounds i32, ptr %.val144, i64 %49
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %47, align 4
@@ -3129,7 +3129,7 @@ Acec_MatchBoxesSort.exit:                         ; preds = %Acec_MatchBoxesSort
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %66, 1
   %72 = xor i32 %70, %71
-  %73 = zext nneg i32 %.02326.i158 to i64
+  %73 = sext i32 %.02326.i158 to i64
   %74 = getelementptr inbounds i32, ptr %.val142, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = ashr i32 %75, 1
@@ -3149,7 +3149,7 @@ Acec_MatchBoxesSort.exit:                         ; preds = %Acec_MatchBoxesSort
   %indvars.iv.next35.i155 = add nuw nsw i64 %indvars.iv34.i153, 1
   %84 = getelementptr inbounds i32, ptr %.val142, i64 %indvars.iv34.i153
   %85 = load i32, ptr %84, align 4
-  %86 = zext nneg i32 %spec.select.i159 to i64
+  %86 = sext i32 %spec.select.i159 to i64
   %87 = getelementptr inbounds i32, ptr %.val142, i64 %86
   %88 = load i32, ptr %87, align 4
   store i32 %88, ptr %84, align 4
