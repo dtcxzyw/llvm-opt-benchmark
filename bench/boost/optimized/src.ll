@@ -62391,6 +62391,7 @@ _ZN5boost4json6detail8charconv6detail22from_chars_strtod_implIdEENS2_19from_char
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %0, i64 %9, i1 false)
   %29 = getelementptr inbounds i8, ptr %26, i64 %9
   store i8 0, ptr %29, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #48

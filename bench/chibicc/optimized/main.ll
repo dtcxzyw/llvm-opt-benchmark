@@ -2002,9 +2002,6 @@ entry:
   %mul = shl i64 %call, 1
   %add = or disjoint i64 %mul, 1
   %call1 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add) #23
-  %invariant.gep = getelementptr i8, ptr %call1, i64 1
-  %invariant.gep43 = getelementptr i8, ptr %call1, i64 1
-  %invariant.gep45 = getelementptr i8, ptr %call1, i64 1
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc41, %entry
@@ -2022,16 +2019,20 @@ for.cond:                                         ; preds = %for.inc41, %entry
 
 sw.bb:                                            ; preds = %for.cond
   %idxprom4 = sext i32 %j.0 to i64
+  %arrayidx5 = getelementptr inbounds i8, ptr %call1, i64 %idxprom4
+  store i8 36, ptr %arrayidx5, align 1
   %inc6 = add nsw i32 %j.0, 2
-  %gep46 = getelementptr i8, ptr %invariant.gep45, i64 %idxprom4
-  store i8 36, ptr %gep46, align 1
+  %arrayidx8 = getelementptr i8, ptr %arrayidx5, i64 1
+  store i8 36, ptr %arrayidx8, align 1
   br label %for.inc41
 
 sw.bb9:                                           ; preds = %for.cond
   %idxprom11 = sext i32 %j.0 to i64
+  %arrayidx12 = getelementptr inbounds i8, ptr %call1, i64 %idxprom11
+  store i8 92, ptr %arrayidx12, align 1
   %inc13 = add nsw i32 %j.0, 2
-  %gep44 = getelementptr i8, ptr %invariant.gep43, i64 %idxprom11
-  store i8 35, ptr %gep44, align 1
+  %arrayidx15 = getelementptr i8, ptr %arrayidx12, i64 1
+  store i8 35, ptr %arrayidx15, align 1
   br label %for.inc41
 
 sw.bb16:                                          ; preds = %for.cond, %for.cond
@@ -2067,9 +2068,11 @@ for.end.loopexit.split.loop.exit41:               ; preds = %land.rhs
 for.end:                                          ; preds = %for.body24, %for.end.loopexit.split.loop.exit41, %sw.bb16
   %j.1.lcssa = phi i32 [ %j.0, %sw.bb16 ], [ %5, %for.end.loopexit.split.loop.exit41 ], [ %3, %for.body24 ]
   %idxprom29 = sext i32 %j.1.lcssa to i64
+  %arrayidx30 = getelementptr inbounds i8, ptr %call1, i64 %idxprom29
+  store i8 92, ptr %arrayidx30, align 1
   %inc33 = add nsw i32 %j.1.lcssa, 2
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %idxprom29
-  store i8 %0, ptr %gep, align 1
+  %arrayidx35 = getelementptr i8, ptr %arrayidx30, i64 1
+  store i8 %0, ptr %arrayidx35, align 1
   br label %for.inc41
 
 sw.default:                                       ; preds = %for.cond

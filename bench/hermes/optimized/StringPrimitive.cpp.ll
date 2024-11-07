@@ -6725,6 +6725,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #17
   store ptr %call5.i.i.i.i.i.i, ptr %ref.tmp, align 8, !alias.scope !21
   store i64 %str.coerce1, ptr %2, align 8, !alias.scope !21
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i, ptr align 2 %str.coerce0, i64 %add.ptr.i.idx.i, i1 false)
   store i64 %str.coerce1, ptr %_M_string_length.i.i, align 8, !alias.scope !21
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %add.ptr.i.idx.i
   store i16 0, ptr %arrayidx.i.i.i.i, align 2

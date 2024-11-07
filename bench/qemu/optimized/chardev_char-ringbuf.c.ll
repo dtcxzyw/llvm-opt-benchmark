@@ -261,27 +261,27 @@ land.rhs.lr.ph.i:                                 ; preds = %if.end6
   %cbuf.i = getelementptr inbounds i8, ptr %call.i.i19, i64 176
   %size.i = getelementptr inbounds i8, ptr %call.i.i19, i64 152
   %wide.trip.count.i = and i64 %cond, 2147483647
-  %cons.i20.promoted = load i64, ptr %cons.i20, align 8
-  %.pre = load i64, ptr %prod.i21, align 8
+  %.pre = load i64, ptr %cons.i20, align 8
+  %.pre23 = load i64, ptr %prod.i21, align 8
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body.i, %land.rhs.lr.ph.i
-  %inc.i23 = phi i64 [ %cons.i20.promoted, %land.rhs.lr.ph.i ], [ %inc.i, %for.body.i ]
+  %4 = phi i64 [ %.pre, %land.rhs.lr.ph.i ], [ %inc.i, %for.body.i ]
   %indvars.iv.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %cmp1.not.i = icmp eq i64 %inc.i23, %.pre
+  %cmp1.not.i = icmp eq i64 %4, %.pre23
   br i1 %cmp1.not.i, label %ringbuf_chr_read.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %4 = load ptr, ptr %cbuf.i, align 8
-  %inc.i = add i64 %inc.i23, 1
+  %5 = load ptr, ptr %cbuf.i, align 8
+  %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %cons.i20, align 8
-  %5 = load i64, ptr %size.i, align 8
-  %sub.i22 = add i64 %5, -1
-  %and.i = and i64 %sub.i22, %inc.i23
-  %arrayidx.i = getelementptr i8, ptr %4, i64 %and.i
-  %6 = load i8, ptr %arrayidx.i, align 1
+  %6 = load i64, ptr %size.i, align 8
+  %sub.i22 = add i64 %6, -1
+  %and.i = and i64 %sub.i22, %4
+  %arrayidx.i = getelementptr i8, ptr %5, i64 %and.i
+  %7 = load i8, ptr %arrayidx.i, align 1
   %arrayidx3.i = getelementptr i8, ptr %call9, i64 %indvars.iv.i
-  store i8 %6, ptr %arrayidx3.i, align 1
+  store i8 %7, ptr %arrayidx3.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %ringbuf_chr_read.exit, label %land.rhs.i, !llvm.loop !7

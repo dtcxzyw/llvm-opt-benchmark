@@ -678,46 +678,50 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %18 = shl nuw nsw i64 %17, 4
   %19 = or disjoint i64 %18, 8
   %20 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %19) #9
+  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  store i32 %12, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %20, i64 8
   %wide.trip.count.i = zext i32 %indvars.iv47.i to i64
-  %invariant.gep.i = getelementptr inbounds i8, ptr %20, i64 16
-  br label %21
+  br label %23
 
-21:                                               ; preds = %21, %14
-  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %21 ]
-  %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %21 ]
+23:                                               ; preds = %23, %14
+  %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %23 ]
+  %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %23 ]
   %.137.i = load ptr, ptr %.137.in42.i, align 8
-  %gep.i = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i
-  store ptr %.137.i, ptr %gep.i, align 8
+  %24 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
+  %25 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr %.137.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %22, label %21, !llvm.loop !8
+  br i1 %exitcond.not.i, label %27, label %23, !llvm.loop !8
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
-  %24 = inttoptr i64 %16 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %23, ptr %25, align 8
+27:                                               ; preds = %23
+  %28 = inttoptr i64 %16 to ptr
+  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  store ptr %22, ptr %29, align 8
   store i32 1, ptr %20, align 8
-  %26 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
-  %27 = call i64 @rb_ary_push(i64 noundef %26, i64 noundef %16) #7
+  %30 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
+  %31 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %16) #7
   %.not45.i = icmp eq i32 %.03441.i, 0
   br i1 %.not45.i, label %rsock_getifaddrs.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ 1, %22 ]
-  %28 = load i64, ptr @rb_cSockIfaddr, align 8
-  %29 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %23, i64 0, i64 %indvars.iv49.i
-  %30 = call i64 @rb_data_typed_object_wrap(i64 noundef %28, ptr noundef nonnull %29, ptr noundef nonnull @ifaddr_type) #7
-  %31 = load i32, ptr %20, align 8
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %20, align 8
-  %33 = call i64 @rb_ary_push(i64 noundef %26, i64 noundef %30) #7
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ 1, %27 ]
+  %32 = load i64, ptr @rb_cSockIfaddr, align 8
+  %33 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv49.i
+  %34 = call i64 @rb_data_typed_object_wrap(i64 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @ifaddr_type) #7
+  %35 = load i32, ptr %20, align 8
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %20, align 8
+  %37 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %34) #7
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
   br i1 %exitcond54.not.i, label %rsock_getifaddrs.exit, label %.lr.ph.i, !llvm.loop !9
 
-rsock_getifaddrs.exit:                            ; preds = %.lr.ph.i, %10, %22
-  %.0.i = phi i64 [ %11, %10 ], [ %26, %22 ], [ %26, %.lr.ph.i ]
+rsock_getifaddrs.exit:                            ; preds = %.lr.ph.i, %10, %27
+  %.0.i = phi i64 [ %11, %10 ], [ %30, %27 ], [ %30, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i64 %.0.i
 }

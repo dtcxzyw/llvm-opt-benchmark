@@ -235,6 +235,7 @@ _ZL13unrar_strnlenPKcm.exit.i:                    ; preds = %63, %.lr.ph.i.i, %6
   br i1 %.not13.i, label %68, label %_ZL13unrar_strndupPKcm.exit
 
 _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenPKcm.exit.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %58, i64 %.0.lcssa.i.i, i1 false)
   %67 = getelementptr inbounds i8, ptr %66, i64 %.0.lcssa.i.i
   store i8 0, ptr %67, align 1
   store ptr %66, ptr %2, align 8

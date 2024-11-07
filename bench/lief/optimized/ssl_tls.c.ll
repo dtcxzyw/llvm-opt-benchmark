@@ -1628,7 +1628,7 @@ define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr nocapture n
 3:                                                ; preds = %2
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %5 = icmp ugt i64 %4, 255
-  br i1 %5, label %18, label %6
+  br i1 %5, label %20, label %6
 
 6:                                                ; preds = %3, %2
   %.0 = phi i64 [ %4, %3 ], [ 0, %2 ]
@@ -1649,18 +1649,23 @@ define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr nocapture n
 
 13:                                               ; preds = %12
   store ptr null, ptr %7, align 8
-  br label %18
+  br label %20
 
 14:                                               ; preds = %12
   %15 = add nuw nsw i64 %.0, 1
   %16 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %15) #23
   store ptr %16, ptr %7, align 8
   %17 = icmp eq ptr %16, null
-  %spec.select = select i1 %17, i32 -32512, i32 0
-  br label %18
+  br i1 %17, label %20, label %18
 
-18:                                               ; preds = %14, %13, %3
-  %.017 = phi i32 [ -28928, %3 ], [ 0, %13 ], [ %spec.select, %14 ]
+18:                                               ; preds = %14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %1, i64 %.0, i1 false)
+  %19 = getelementptr inbounds i8, ptr %16, i64 %.0
+  store i8 0, ptr %19, align 1
+  br label %20
+
+20:                                               ; preds = %13, %18, %14, %3
+  %.017 = phi i32 [ -28928, %3 ], [ -32512, %14 ], [ 0, %18 ], [ 0, %13 ]
   ret i32 %.017
 }
 

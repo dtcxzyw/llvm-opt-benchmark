@@ -22,7 +22,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
-  call void @CORD_set_pos(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 0) #9
+  call void @CORD_set_pos(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 0) #10
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %.not186 = icmp eq i32 %11, 1431655765
@@ -59,7 +59,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %31
 
 29:                                               ; preds = %20
-  %30 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #9
+  %30 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #10
   br label %31
 
 31:                                               ; preds = %29, %22
@@ -79,7 +79,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %40
 
 39:                                               ; preds = %33
-  call void @CORD__next(ptr noundef nonnull %5) #9
+  call void @CORD__next(ptr noundef nonnull %5) #10
   br label %40
 
 40:                                               ; preds = %39, %38
@@ -102,7 +102,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %53
 
 51:                                               ; preds = %42
-  %52 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #9
+  %52 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #10
   br label %53
 
 53:                                               ; preds = %51, %44
@@ -116,7 +116,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %.pre203 = load ptr, ptr %9, align 8
   br label %59
 
@@ -155,7 +155,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %74
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #9
+  %73 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #10
   br label %74
 
 74:                                               ; preds = %72, %65
@@ -256,7 +256,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %96
 
 95:                                               ; preds = %89
-  call void @CORD__next(ptr noundef nonnull %5) #9
+  call void @CORD__next(ptr noundef nonnull %5) #10
   br label %96
 
 96:                                               ; preds = %95, %94
@@ -290,7 +290,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %113
 
 111:                                              ; preds = %99
-  %112 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #9
+  %112 = call signext i8 @CORD__pos_fetch(ptr noundef nonnull %5) #10
   br label %113
 
 113:                                              ; preds = %111, %104
@@ -331,7 +331,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %127 = phi ptr [ %121, %118 ], [ %124, %123 ]
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %4, align 16
-  %130 = call i64 @CORD_len(ptr noundef %129) #9
+  %130 = call i64 @CORD_len(ptr noundef %129) #10
   %131 = load ptr, ptr %9, align 8
   %132 = ptrtoint ptr %131 to i64
   %133 = sub i64 %130, %18
@@ -363,7 +363,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %148 = phi ptr [ %142, %139 ], [ %145, %144 ]
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %4, align 16
-  %151 = call i64 @CORD_len(ptr noundef %150) #9
+  %151 = call i64 @CORD_len(ptr noundef %150) #10
   %152 = load ptr, ptr %9, align 8
   %153 = ptrtoint ptr %152 to i64
   %154 = sub i64 %151, %18
@@ -398,7 +398,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %170 = phi ptr [ %164, %161 ], [ %167, %166 ]
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %4, align 16
-  %173 = call i64 @CORD_len(ptr noundef %172) #9
+  %173 = call i64 @CORD_len(ptr noundef %172) #10
   %174 = load ptr, ptr %9, align 8
   %175 = ptrtoint ptr %174 to i64
   %176 = sub i64 %173, %18
@@ -427,7 +427,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %188 = phi ptr [ %182, %179 ], [ %185, %184 ]
   %189 = load ptr, ptr %188, align 8
   %190 = load ptr, ptr %4, align 16
-  %191 = call i64 @CORD_len(ptr noundef %190) #9
+  %191 = call i64 @CORD_len(ptr noundef %190) #10
   %192 = load ptr, ptr %9, align 8
   %193 = ptrtoint ptr %192 to i64
   %194 = sub i64 %191, %18
@@ -518,7 +518,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 239:                                              ; preds = %236, %231
   %240 = phi ptr [ %234, %231 ], [ %237, %236 ]
   %241 = load ptr, ptr %240, align 8
-  %242 = call i64 @CORD_len(ptr noundef %241) #9
+  %242 = call i64 @CORD_len(ptr noundef %241) #10
   %.not118 = icmp eq i32 %.1148, -1
   br i1 %.not118, label %250, label %243
 
@@ -532,7 +532,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %247, label %extract_conv_spec.exit.thread, label %248
 
 248:                                              ; preds = %246
-  %249 = call ptr @CORD_substr(ptr noundef %241, i64 noundef 0, i64 noundef %244) #9
+  %249 = call ptr @CORD_substr(ptr noundef %241, i64 noundef 0, i64 noundef %244) #10
   br label %250
 
 250:                                              ; preds = %248, %243, %239
@@ -549,34 +549,35 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 254:                                              ; preds = %251
   %255 = sub nuw nsw i64 %252, %.078
   %256 = add nuw nsw i64 %255, 1
-  %257 = call noalias ptr @GC_malloc_atomic(i64 noundef %256) #10
+  %257 = call noalias ptr @GC_malloc_atomic(i64 noundef %256) #11
   %258 = icmp eq ptr %257, null
   br i1 %258, label %259, label %262
 
 259:                                              ; preds = %254
-  call void @CORD__call_oom_fn() #9
+  call void @CORD__call_oom_fn() #10
   %260 = load ptr, ptr @stderr, align 8
-  %261 = call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %260) #11
-  call void @abort() #12
+  %261 = call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %260) #12
+  call void @abort() #13
   unreachable
 
 262:                                              ; preds = %254
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %257, i8 32, i64 %255, i1 false)
   %263 = getelementptr inbounds i8, ptr %257, i64 %255
   store i8 0, ptr %263, align 1
   %.not120 = icmp eq i32 %.0144, 0
   br i1 %.not120, label %266, label %264
 
 264:                                              ; preds = %262
-  %265 = call ptr @CORD_cat(ptr noundef %.076, ptr noundef nonnull %257) #9
+  %265 = call ptr @CORD_cat(ptr noundef %.076, ptr noundef nonnull %257) #10
   br label %268
 
 266:                                              ; preds = %262
-  %267 = call ptr @CORD_cat(ptr noundef nonnull %257, ptr noundef %.076) #9
+  %267 = call ptr @CORD_cat(ptr noundef nonnull %257, ptr noundef %.076) #10
   br label %268
 
 268:                                              ; preds = %264, %266, %251, %250
   %.177 = phi ptr [ %265, %264 ], [ %267, %266 ], [ %.076, %251 ], [ %.076, %250 ]
-  call void @CORD_ec_append_cord(ptr noundef nonnull %4, ptr noundef %.177) #9
+  call void @CORD_ec_append_cord(ptr noundef nonnull %4, ptr noundef %.177) #10
   br label %.loopexit
 
 269:                                              ; preds = %113
@@ -613,7 +614,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %288, label %289, label %290
 
 289:                                              ; preds = %283
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %.pre199 = load ptr, ptr %9, align 8
   br label %290
 
@@ -665,7 +666,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %314, label %315, label %316
 
 315:                                              ; preds = %.lr.ph
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %.pre198 = load ptr, ptr %9, align 8
   br label %316
 
@@ -749,15 +750,15 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 355:                                              ; preds = %352
   %356 = add nuw i32 %.172, 51
   %357 = zext i32 %356 to i64
-  %358 = call noalias ptr @GC_malloc_atomic(i64 noundef %357) #10
+  %358 = call noalias ptr @GC_malloc_atomic(i64 noundef %357) #11
   %359 = icmp eq ptr %358, null
   br i1 %359, label %360, label %371
 
 360:                                              ; preds = %355
-  call void @CORD__call_oom_fn() #9
+  call void @CORD__call_oom_fn() #10
   %361 = load ptr, ptr @stderr, align 8
-  %362 = call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %361) #11
-  call void @abort() #12
+  %362 = call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %361) #12
+  call void @abort() #13
   unreachable
 
 363:                                              ; preds = %352
@@ -770,7 +771,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %369, label %370, label %371
 
 370:                                              ; preds = %363
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %.pre201 = load ptr, ptr %9, align 8
   br label %371
 
@@ -882,7 +883,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 414:                                              ; preds = %409, %411, %401, %403, %377, %379, %387, %389, %393, %395
   %415 = add i32 %.172, 51
   %416 = zext i32 %415 to i64
-  %417 = call i32 @vsnprintf(ptr noundef %.073, i64 noundef %416, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %417 = call i32 @vsnprintf(ptr noundef %.073, i64 noundef %416, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   call void @llvm.va_end.p0(ptr nonnull %7)
   %418 = sext i32 %417 to i64
   %419 = inttoptr i64 %418 to ptr
@@ -895,7 +896,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %421, label %422, label %extract_conv_spec.exit.thread
 
 422:                                              ; preds = %.thread, %414
-  %423 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.073) #13
+  %423 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.073) #14
   br label %427
 
 424:                                              ; preds = %414
@@ -923,7 +924,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %433, label %434, label %435
 
 434:                                              ; preds = %.lr.ph185
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %.pre202 = load ptr, ptr %9, align 8
   br label %435
 
@@ -947,7 +948,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %443, label %444, label %445
 
 444:                                              ; preds = %441
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %.pre = load ptr, ptr %9, align 8
   br label %445
 
@@ -970,7 +971,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %454
 
 453:                                              ; preds = %.loopexit
-  call void @CORD__next(ptr noundef nonnull %5) #9
+  call void @CORD__next(ptr noundef nonnull %5) #10
   br label %454
 
 454:                                              ; preds = %453, %452
@@ -981,15 +982,15 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 ._crit_edge:                                      ; preds = %454, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre206, %.._crit_edge_crit_edge ], [ %18, %454 ]
   %456 = load ptr, ptr %4, align 16
-  %457 = call i64 @CORD_len(ptr noundef %456) #9
+  %457 = call i64 @CORD_len(ptr noundef %456) #10
   %458 = load ptr, ptr %9, align 8
   %459 = ptrtoint ptr %458 to i64
   %460 = sub i64 %457, %.pre-phi
   %461 = add i64 %460, %459
   %462 = trunc i64 %461 to i32
-  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #9
+  call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #10
   %463 = load ptr, ptr %4, align 16
-  %464 = call ptr @CORD_balance(ptr noundef %463) #9
+  %464 = call ptr @CORD_balance(ptr noundef %463) #10
   store ptr %464, ptr %0, align 8
   br label %extract_conv_spec.exit.thread
 
@@ -1018,15 +1019,18 @@ declare void @CORD__call_oom_fn() local_unnamed_addr #1
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+
 declare ptr @CORD_cat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @CORD_ec_append_cord(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 declare ptr @CORD_balance(ptr noundef) local_unnamed_addr #1
 
@@ -1052,7 +1056,7 @@ define i32 @CORD_fprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %4, align 8
-  %9 = call i32 @CORD_put(ptr noundef %8, ptr noundef %0) #9
+  %9 = call i32 @CORD_put(ptr noundef %8, ptr noundef %0) #10
   br label %10
 
 10:                                               ; preds = %7, %2
@@ -1071,7 +1075,7 @@ define i32 @CORD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = tail call i32 @CORD_put(ptr noundef %8, ptr noundef %0) #9
+  %9 = tail call i32 @CORD_put(ptr noundef %8, ptr noundef %0) #10
   br label %10
 
 10:                                               ; preds = %7, %3
@@ -1092,7 +1096,7 @@ define i32 @CORD_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr @stdout, align 8
-  %9 = call i32 @CORD_put(ptr noundef %7, ptr noundef %8) #9
+  %9 = call i32 @CORD_put(ptr noundef %7, ptr noundef %8) #10
   br label %10
 
 10:                                               ; preds = %6, %1
@@ -1110,7 +1114,7 @@ define i32 @CORD_vprintf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr @stdout, align 8
-  %9 = tail call i32 @CORD_put(ptr noundef %7, ptr noundef %8) #9
+  %9 = tail call i32 @CORD_put(ptr noundef %7, ptr noundef %8) #10
   br label %10
 
 10:                                               ; preds = %6, %2
@@ -1118,34 +1122,35 @@ define i32 @CORD_vprintf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #6
+declare void @llvm.va_copy.p0(ptr, ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #6
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #6
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { cold }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nofree nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { cold }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

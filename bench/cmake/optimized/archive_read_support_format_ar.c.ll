@@ -101,7 +101,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_ar_read_header(ptr no
 12:                                               ; preds = %9, %2
   %13 = tail call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 60, ptr noundef null) #13
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %176, label %15
+  br i1 %14, label %177, label %15
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3)
@@ -118,7 +118,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_ar_read_header(ptr no
 
 .tail.thread.i:                                   ; preds = %.tail.i, %15
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.5) #13
-  br label %174
+  br label %175
 
 21:                                               ; preds = %.tail.i
   %22 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #13
@@ -202,7 +202,7 @@ thread-pre-split.thread.i:                        ; preds = %30, %21
 
 48:                                               ; preds = %47
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.10) #13
-  br label %174
+  br label %175
 
 49:                                               ; preds = %47
   %bcmp151.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.11, i64 3)
@@ -288,7 +288,7 @@ ar_atol10.exit.i:                                 ; preds = %67, %.lr.ph.i.i
 
 ar_atol10.exit.thread.i:                          ; preds = %64, %62, %ar_atol10.exit.i
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.12) #13
-  br label %174
+  br label %175
 
 75:                                               ; preds = %ar_atol10.exit.i
   %76 = icmp eq i64 %.127.i.i, 0
@@ -296,7 +296,7 @@ ar_atol10.exit.thread.i:                          ; preds = %64, %62, %ar_atol10
 
 .thread221.i:                                     ; preds = %75, %.critedge.i.i
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.13) #13
-  br label %174
+  br label %175
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %6, i64 32
@@ -306,7 +306,7 @@ ar_atol10.exit.thread.i:                          ; preds = %64, %62, %ar_atol10
 
 80:                                               ; preds = %77
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.14) #13
-  br label %174
+  br label %175
 
 81:                                               ; preds = %77
   %82 = call noalias ptr @malloc(i64 noundef %.127.i.i) #16
@@ -315,7 +315,7 @@ ar_atol10.exit.thread.i:                          ; preds = %64, %62, %ar_atol10
 
 84:                                               ; preds = %81
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.15) #13
-  br label %174
+  br label %175
 
 85:                                               ; preds = %81
   store ptr %82, ptr %78, align 8
@@ -430,18 +430,18 @@ ar_atol10.exit189.i:                              ; preds = %114, %111, %109, %.
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.16) #13
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
   call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull readonly %13)
-  br label %174
+  br label %175
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds i8, ptr %122, i64 %.127.i177.i
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %129) #13
   call fastcc void @ar_parse_common_header(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull readonly %13)
-  br label %174
+  br label %175
 
 130:                                              ; preds = %93
   %bcmp152.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %3, ptr noundef nonnull dereferenceable(3) @.str.6, i64 3)
   %131 = icmp eq i32 %bcmp152.i, 0
-  br i1 %131, label %132, label %172
+  br i1 %131, label %132, label %173
 
 132:                                              ; preds = %130
   call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull readonly %13)
@@ -527,7 +527,7 @@ ar_atol10.exit215.thread224.i:                    ; preds = %ar_atol10.exit215.i
 
 ar_atol10.exit215.thread.i:                       ; preds = %145, %143, %ar_atol10.exit215.thread224.i, %ar_atol10.exit215.i
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.17) #13
-  br label %174
+  br label %175
 
 158:                                              ; preds = %ar_atol10.exit215.thread224.i
   %159 = sub nsw i64 %156, %.127.i203226.i
@@ -553,14 +553,15 @@ ar_atol10.exit215.thread.i:                       ; preds = %145, %143, %ar_atol
   br label %_ar_read_header.exit
 
 169:                                              ; preds = %164
-  %170 = getelementptr inbounds i8, ptr %166, i64 %.127.i203226.i
-  store i8 0, ptr %170, align 1
-  %171 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.127.i203226.i) #13
+  %170 = call ptr @strncpy(ptr noundef nonnull %166, ptr noundef nonnull %161, i64 noundef %.127.i203226.i) #13
+  %171 = getelementptr inbounds i8, ptr %166, i64 %.127.i203226.i
+  store i8 0, ptr %171, align 1
+  %172 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.127.i203226.i) #13
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %166) #13
   call void @free(ptr noundef nonnull %166) #13
   br label %_ar_read_header.exit
 
-172:                                              ; preds = %130
+173:                                              ; preds = %130
   %lhsv.i = load i16, ptr %3, align 16
   %.not154.i = icmp eq i16 %lhsv.i, 47
   %lhsv155.i = load i64, ptr %3, align 16
@@ -568,25 +569,25 @@ ar_atol10.exit215.thread.i:                       ; preds = %145, %143, %ar_atol
   %or.cond163.i = select i1 %.not154.i, i1 true, i1 %.not157.i
   call void @archive_entry_copy_pathname(ptr noundef %1, ptr noundef nonnull %3) #13
   call fastcc void @ar_parse_common_header(ptr noundef %6, ptr noundef %1, ptr noundef nonnull readonly %13)
-  br i1 %or.cond163.i, label %173, label %174
+  br i1 %or.cond163.i, label %174, label %175
 
-173:                                              ; preds = %172
+174:                                              ; preds = %173
   call void @archive_entry_set_filetype(ptr noundef %1, i32 noundef 32768) #13
-  br label %174
+  br label %175
 
 _ar_read_header.exit:                             ; preds = %85, %90, %163, %168, %169
   %.0.i = phi i32 [ %92, %90 ], [ -30, %163 ], [ -30, %168 ], [ 0, %169 ], [ -30, %85 ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %3)
-  br label %176
+  br label %177
 
-174:                                              ; preds = %48, %ar_atol10.exit.thread.i, %.thread221.i, %84, %80, %127, %128, %ar_atol10.exit215.thread.i, %173, %172, %.tail.thread.i
-  %.0.i.ph = phi i32 [ 0, %172 ], [ 0, %173 ], [ -30, %ar_atol10.exit215.thread.i ], [ 0, %128 ], [ -30, %127 ], [ -30, %84 ], [ -30, %80 ], [ -30, %.thread221.i ], [ -30, %ar_atol10.exit.thread.i ], [ -30, %48 ], [ -30, %.tail.thread.i ]
+175:                                              ; preds = %48, %ar_atol10.exit.thread.i, %.thread221.i, %84, %80, %127, %128, %ar_atol10.exit215.thread.i, %174, %173, %.tail.thread.i
+  %.0.i.ph = phi i32 [ 0, %173 ], [ 0, %174 ], [ -30, %ar_atol10.exit215.thread.i ], [ 0, %128 ], [ -30, %127 ], [ -30, %84 ], [ -30, %80 ], [ -30, %.thread221.i ], [ -30, %ar_atol10.exit.thread.i ], [ -30, %48 ], [ -30, %.tail.thread.i ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %3)
-  %175 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 60) #13
-  br label %176
+  %176 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 60) #13
+  br label %177
 
-176:                                              ; preds = %_ar_read_header.exit, %174, %12
-  %.0 = phi i32 [ 1, %12 ], [ %.0.i.ph, %174 ], [ %.0.i, %_ar_read_header.exit ]
+177:                                              ; preds = %_ar_read_header.exit, %175, %12
+  %.0 = phi i32 [ 1, %12 ], [ %.0.i.ph, %175 ], [ %.0.i, %_ar_read_header.exit ]
   ret i32 %.0
 }
 

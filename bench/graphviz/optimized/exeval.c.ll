@@ -5530,7 +5530,7 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   %.sroa.10.0 = phi i64 [ %178, %180 ], [ 0, %175 ]
   %184 = getelementptr inbounds i8, ptr %1, i64 40
   %185 = load i32, ptr %184, align 8
-  switch i32 %185, label %301 [
+  switch i32 %185, label %302 [
     i32 113, label %186
     i32 81, label %186
     i32 83, label %190
@@ -5780,20 +5780,21 @@ exeval.exit167:                                   ; preds = %124, %128, %130, %1
   br label %.sink.split218
 
 297:                                              ; preds = %290
-  %298 = getelementptr inbounds i8, ptr %294, i64 %.sroa.10.0
-  store i8 0, ptr %298, align 1
-  %299 = call i64 @strftime(ptr noundef %291, i64 noundef 80, ptr noundef nonnull %294, ptr noundef %292) #23
+  %298 = call ptr @strncpy(ptr noundef nonnull %294, ptr noundef nonnull %.sroa.05.0, i64 noundef %.sroa.10.0) #23
+  %299 = getelementptr inbounds i8, ptr %294, i64 %.sroa.10.0
+  store i8 0, ptr %299, align 1
+  %300 = call i64 @strftime(ptr noundef %291, i64 noundef 80, ptr noundef nonnull %294, ptr noundef %292) #23
   call void @free(ptr noundef nonnull %294) #23
   store ptr %291, ptr %0, align 8
   br label %.sink.split218
 
 .sink.split218:                                   ; preds = %279, %264, %251, %236, %216, %289, %297, %296, %190, %267, %205, %.preheader, %.preheader178, %.preheader180, %.preheader182, %198, %186
   store i32 115, ptr %184, align 8
-  %300 = getelementptr inbounds i8, ptr %1, i64 48
-  store i64 -1, ptr %300, align 8
-  br label %301
+  %301 = getelementptr inbounds i8, ptr %1, i64 48
+  store i64 -1, ptr %301, align 8
+  br label %302
 
-301:                                              ; preds = %.sink.split218, %183
+302:                                              ; preds = %.sink.split218, %183
   ret i32 0
 }
 
