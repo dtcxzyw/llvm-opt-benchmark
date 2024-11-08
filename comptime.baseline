@@ -10393,7 +10393,7 @@ icu/bytestrieiterator.ll 184981592
 icu/cal.ll 531243455
 icu/calendar.ll 1696314147
 icu/caniter.ll 375192492
-icu/casetrn.ll 82775522
+icu/casetrn.ll 82858542
 icu/cecal.ll 67256644
 icu/characterproperties.ll 250193268
 icu/chariter.ll 63454387
@@ -13048,7 +13048,7 @@ linux/intel_cdclk.ll 758010699
 linux/intel_color.ll 2183866291
 linux/intel_combo_phy.ll 135644522
 linux/intel_connector.ll 65381929
-linux/intel_context.ll 192691417
+linux/intel_context.ll 192884115
 linux/intel_context_sseu.ll 70387551
 linux/intel_crt.ll 242838223
 linux/intel_crtc.ll 206564310
@@ -27042,7 +27042,7 @@ openssl/quicfaultstest-bin-quicfaultstest.ll 101875551
 openssl/quicfaultstest-bin-quictestlib.ll 346206175
 openssl/quicfaultstest-bin-ssltestlib.ll 437832823
 openssl/quicserver-bin-quicserver.ll 137181841
-openssl/rc4test-bin-rc4test.ll 47931103
+openssl/rc4test-bin-rc4test.ll 47979204
 openssl/recordlentest-bin-recordlentest.ll 105617431
 openssl/recordlentest-bin-ssltestlib.ll 437829499
 openssl/rpktest-bin-rpktest.ll 258222076
