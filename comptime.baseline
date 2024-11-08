@@ -31835,7 +31835,7 @@ quantlib/qdfpamericanengine.ll 4216792123
 quantlib/qdplusamericanengine.ll 4627051643
 quantlib/qrdecomposition.ll 751389740
 quantlib/quadratic.ll 43946669
-quantlib/quantity.ll 665316349
+quantlib/quantity.ll 664651027
 quantlib/quantobarrieroption.ll 656777544
 quantlib/quantocouponpricer.ll 552414990
 quantlib/quantodoublebarrieroption.ll 652848441
