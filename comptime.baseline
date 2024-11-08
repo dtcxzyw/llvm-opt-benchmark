@@ -5945,7 +5945,7 @@ darktable/avif.c.ll 213126540
 darktable/backgroundjobs.c.ll 90474402
 darktable/camera.c.ll 220772784
 darktable/collect.c.ll 830392786
-darktable/colorlabels.c.ll 87894888
+darktable/colorlabels.c.ll 87983273
 darktable/colorpicker.c.ll 241153920
 darktable/common.c.ll 262457463
 darktable/copy_history.c.ll 107987508
@@ -10797,7 +10797,7 @@ icu/uresbund.ll 1240421045
 icu/uresdata.ll 567151055
 icu/usc_impl.ll 128660597
 icu/uscanf_p.ll 340954158
-icu/uscript.ll 127476060
+icu/uscript.ll 127603728
 icu/uscript_props.ll 58691799
 icu/usearch.ll 868892183
 icu/uset.ll 173275103
@@ -11480,7 +11480,7 @@ libquic/dsa_test.c.ll 86111879
 libquic/dtls_record.c.ll 87495787
 libquic/dtoa.cc.ll 1295819000
 libquic/e_aes.c.ll 345201781
-libquic/e_chacha20poly1305.c.ll 86200594
+libquic/e_chacha20poly1305.c.ll 86287202
 libquic/e_rc2.c.ll 269998307
 libquic/e_ssl3.c.ll 102948623
 libquic/e_tls.c.ll 128656087
@@ -12598,7 +12598,7 @@ linux/decompress_unzstd.ll 77474919
 linux/deflate.ll 472544925
 linux/deftree.ll 545148270
 linux/delay.ll 69588487
-linux/delayacct.ll 88755207
+linux/delayacct.ll 88844603
 linux/delegation.ll 363092242
 linux/dev-ioctl.ll 135123923
 linux/dev.ll 108818570
@@ -12844,7 +12844,7 @@ linux/fsync.ll 69340782
 linux/futex.ll 120261662
 linux/fw_table.ll 73834164
 linux/g4x_dp.ll 274728497
-linux/g4x_hdmi.ll 162258964
+linux/g4x_hdmi.ll 162421613
 linux/garbage.ll 117356605
 linux/gc.ll 113166872
 linux/gcm.ll 235336230
@@ -13038,7 +13038,7 @@ linux/insn.ll 189477731
 linux/intel-gtt.ll 252240093
 linux/intel-nhlt.ll 104061363
 linux/intel.ll 246337184
-linux/intel_atomic.ll 82127306
+linux/intel_atomic.ll 82210061
 linux/intel_atomic_plane.ll 395791255
 linux/intel_backlight.ll 352152695
 linux/intel_bios.ll 961186175
@@ -16213,7 +16213,7 @@ llvm/TargetTransformInfo.cpp.ll 3586673349
 llvm/Targets.cpp.ll 9174276798
 llvm/TemplateBase.cpp.ll 1455850736
 llvm/TemplateName.cpp.ll 638379594
-llvm/TensorSpec.cpp.ll 1288768911
+llvm/TensorSpec.cpp.ll 1290058960
 llvm/TestAfterDivZeroChecker.cpp.ll 2020058662
 llvm/TestModuleFileExtension.cpp.ll 1556502622
 llvm/TextAPIError.cpp.ll 68526164
@@ -22553,7 +22553,7 @@ openjdk/UnixDomainSockets.ll 69977782
 openjdk/UnixFileDispatcherImpl.ll 85534826
 openjdk/UnixFileSystem.ll 59940557
 openjdk/UnixFileSystem_md.ll 151351257
-openjdk/UnixFileUtils.ll 86442397
+openjdk/UnixFileUtils.ll 86529026
 openjdk/UnixNativeDispatcher.ll 358518683
 openjdk/UnixOperatingSystem.ll 106103444
 openjdk/UnixSysInfo.ll 80752974
@@ -24535,7 +24535,7 @@ openmpi/libmpi_c_profile_la-allreduce.ll 114633069
 openmpi/libmpi_c_profile_la-allreduce_init.ll 106129025
 openmpi/libmpi_c_profile_la-alltoall.ll 101618372
 openmpi/libmpi_c_profile_la-alltoall_init.ll 92443187
-openmpi/libmpi_c_profile_la-alltoallv.ll 123325614
+openmpi/libmpi_c_profile_la-alltoallv.ll 123448983
 openmpi/libmpi_c_profile_la-alltoallv_init.ll 120205752
 openmpi/libmpi_c_profile_la-alltoallw.ll 123839391
 openmpi/libmpi_c_profile_la-alltoallw_init.ll 119960441
@@ -24938,7 +24938,7 @@ openmpi/mpool_base_frame.ll 61685000
 openmpi/mpool_base_lookup.ll 44273917
 openmpi/mpool_base_tree.ll 151441793
 openmpi/mpool_hugepage_component.ll 162361677
-openmpi/mpool_hugepage_module.ll 85286837
+openmpi/mpool_hugepage_module.ll 85372183
 openmpi/mtl_base_frame.ll 41847995
 openmpi/nbc.ll 513352520
 openmpi/nbc_iallgather.ll 182602688
@@ -30388,7 +30388,7 @@ qdrant-rs/1qcrz5nljonxi1bh.ll 1903150824
 qdrant-rs/1qtu8dw3f0ctj9yc.ll 720614119
 qdrant-rs/1sx1pjpbst7gikiv.ll 1228062706
 qdrant-rs/1tmihqgw6mdvoma8.ll 456804159
-qdrant-rs/1udohadh7ll8zbvb.ll 316478908
+qdrant-rs/1udohadh7ll8zbvb.ll 316796668
 qdrant-rs/200z8hb8nq7ljay9.ll 43273970
 qdrant-rs/22qkayp1ke90eqq2.ll 99555642
 qdrant-rs/23nlkzsh9fgdn4zq.ll 74527708
@@ -30866,7 +30866,7 @@ qemu/migration_vmstate.c.ll 430521701
 qemu/migration_xbzrle.c.ll 176823245
 qemu/monitor_fds.c.ll 223068345
 qemu/monitor_hmp-cmds-target.c.ll 158303260
-qemu/monitor_hmp-target.c.ll 111585565
+qemu/monitor_hmp-target.c.ll 111698961
 qemu/monitor_hmp.c.ll 758142667
 qemu/monitor_monitor.c.ll 288442605
 qemu/monitor_qmp-cmds-control.c.ll 112290580
@@ -36721,7 +36721,7 @@ wasmtime-rs/4xu6ecb82tc69emg.ll 823131432
 wasmtime-rs/4xvy1v5r955ui0c8.ll 171158647
 wasmtime-rs/4y19gy3l28n56lab.ll 2486389994
 wasmtime-rs/4z02b278nscq7j1a.ll 2834932875
-wasmtime-rs/4zfyij6ubn2ogcve.ll 160053826
+wasmtime-rs/4zfyij6ubn2ogcve.ll 160214790
 wasmtime-rs/4zgi7yxvi0e8lh1l.ll 93988020
 wasmtime-rs/4zpfk2x34146qelg.ll 266139107
 wasmtime-rs/504voril3a5lulnh.ll 4316736648
