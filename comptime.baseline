@@ -28457,7 +28457,7 @@ php/ZendAccelerator.ll 2464690878
 php/active_formatting.ll 93271042
 php/apprentice.ll 4845828675
 php/array.ll 5269819013
-php/array_obj.ll 77454614
+php/array_obj.ll 77377127
 php/ascmagic.ll 221819624
 php/assert.ll 258038774
 php/astro.ll 60996744
