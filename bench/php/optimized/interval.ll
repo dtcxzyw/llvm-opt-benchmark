@@ -795,7 +795,7 @@ define hidden ptr @timelib_sub(ptr noundef %0, ptr nocapture noundef readonly %1
   store i64 %.neg33, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8
-  %31 = sub nsw i64 0, %30
+  %31 = sub i64 0, %30
   %32 = select i1 %.not, i64 %31, i64 %30
   %33 = getelementptr inbounds i8, ptr %3, i64 136
   store i64 %32, ptr %33, align 8
