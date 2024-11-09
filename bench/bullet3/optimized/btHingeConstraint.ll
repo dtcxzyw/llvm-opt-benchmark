@@ -4230,6 +4230,7 @@ declare void @_ZN14btAngularLimit4testEf(ptr noundef nonnull align 4 dereference
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17btHingeConstraint14setMotorTargetERK12btQuaternionf(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %qAinB, float noundef %dt) local_unnamed_addr #1 align 2 {
 entry:
+  %targetAngle.addr.i = alloca float, align 4
   %retval.i11 = alloca %class.btQuaternion, align 8
   %retval.i = alloca %class.btQuaternion, align 8
   %m_rbBFrame = getelementptr inbounds i8, ptr %this, i64 640
@@ -4432,11 +4433,114 @@ if.then:                                          ; preds = %_Z15shortestArcQuat
 if.end:                                           ; preds = %if.then, %_Z15shortestArcQuatRK9btVector3S1_.exit
   %qHinge.sroa.8.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i106, %if.then ], [ %qHinge.sroa.8.12.vec.insert, %_Z15shortestArcQuatRK9btVector3S1_.exit ]
   %targetAngle.0 = phi float [ %mul.i115, %if.then ], [ %mul.i98, %_Z15shortestArcQuatRK9btVector3S1_.exit ]
-  %qHinge.sroa.8.8.vec.extract127 = extractelement <2 x float> %qHinge.sroa.8.0, i64 0
-  %cmp40 = fcmp olt float %qHinge.sroa.8.8.vec.extract127, 0.000000e+00
+  %qHinge.sroa.8.8.vec.extract132 = extractelement <2 x float> %qHinge.sroa.8.0, i64 0
+  %cmp40 = fcmp olt float %qHinge.sroa.8.8.vec.extract132, 0.000000e+00
   %fneg = fneg float %targetAngle.0
   %targetAngle.1 = select i1 %cmp40, float %fneg, float %targetAngle.0
-  call void @_ZN17btHingeConstraint14setMotorTargetEff(ptr noundef nonnull align 8 dereferenceable(792) %this, float noundef %targetAngle.1, float noundef %dt)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %targetAngle.addr.i)
+  store float %targetAngle.1, ptr %targetAngle.addr.i, align 4
+  %m_limit.i = getelementptr inbounds i8, ptr %this, i64 712
+  call void @_ZNK14btAngularLimit3fitERf(ptr noundef nonnull align 4 dereferenceable(29) %m_limit.i, ptr noundef nonnull align 4 dereferenceable(4) %targetAngle.addr.i)
+  %m_rbA.i = getelementptr inbounds i8, ptr %this, i64 40
+  %73 = load ptr, ptr %m_rbA.i, align 8
+  %m_worldTransform.i.i = getelementptr inbounds i8, ptr %73, i64 8
+  %m_rbB.i = getelementptr inbounds i8, ptr %this, i64 48
+  %74 = load ptr, ptr %m_rbB.i, align 8
+  %m_worldTransform.i1.i = getelementptr inbounds i8, ptr %74, i64 8
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
+  %75 = load float, ptr %m_rbAFrame, align 8
+  %76 = load float, ptr %arrayidx4.i.i.i, align 8
+  %77 = load float, ptr %arrayidx9.i.i.i, align 8
+  %78 = load float, ptr %m_worldTransform.i.i, align 4
+  %arrayidx5.i.i.i.i117 = getelementptr inbounds i8, ptr %73, i64 12
+  %79 = load float, ptr %arrayidx5.i.i.i.i117, align 4
+  %mul8.i.i.i.i118 = fmul float %76, %79
+  %80 = call float @llvm.fmuladd.f32(float %78, float %75, float %mul8.i.i.i.i118)
+  %arrayidx10.i.i.i.i119 = getelementptr inbounds i8, ptr %73, i64 16
+  %81 = load float, ptr %arrayidx10.i.i.i.i119, align 4
+  %82 = call noundef float @llvm.fmuladd.f32(float %81, float %77, float %80)
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 24
+  %83 = load float, ptr %arrayidx.i.i.i.i, align 4
+  %arrayidx5.i5.i.i.i = getelementptr inbounds i8, ptr %73, i64 28
+  %84 = load float, ptr %arrayidx5.i5.i.i.i, align 4
+  %mul8.i7.i.i.i = fmul float %76, %84
+  %85 = call float @llvm.fmuladd.f32(float %83, float %75, float %mul8.i7.i.i.i)
+  %arrayidx10.i8.i.i.i = getelementptr inbounds i8, ptr %73, i64 32
+  %86 = load float, ptr %arrayidx10.i8.i.i.i, align 4
+  %87 = call noundef float @llvm.fmuladd.f32(float %86, float %77, float %85)
+  %arrayidx.i10.i.i.i = getelementptr inbounds i8, ptr %73, i64 40
+  %88 = load float, ptr %arrayidx.i10.i.i.i, align 4
+  %arrayidx5.i11.i.i.i = getelementptr inbounds i8, ptr %73, i64 44
+  %89 = load float, ptr %arrayidx5.i11.i.i.i, align 4
+  %mul8.i13.i.i.i = fmul float %76, %89
+  %90 = call float @llvm.fmuladd.f32(float %88, float %75, float %mul8.i13.i.i.i)
+  %arrayidx10.i14.i.i.i = getelementptr inbounds i8, ptr %73, i64 48
+  %91 = load float, ptr %arrayidx10.i14.i.i.i, align 4
+  %92 = call noundef float @llvm.fmuladd.f32(float %91, float %77, float %90)
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %this, i64 580
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 596
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %this, i64 612
+  %93 = load float, ptr %arrayidx2.i.i.i, align 4
+  %94 = load float, ptr %arrayidx7.i.i.i, align 4
+  %95 = load float, ptr %arrayidx12.i.i.i, align 4
+  %mul8.i.i16.i.i = fmul float %79, %94
+  %96 = call float @llvm.fmuladd.f32(float %78, float %93, float %mul8.i.i16.i.i)
+  %97 = call noundef float @llvm.fmuladd.f32(float %81, float %95, float %96)
+  %mul8.i7.i21.i.i = fmul float %84, %94
+  %98 = call float @llvm.fmuladd.f32(float %83, float %93, float %mul8.i7.i21.i.i)
+  %99 = call noundef float @llvm.fmuladd.f32(float %86, float %95, float %98)
+  %mul8.i13.i25.i.i = fmul float %89, %94
+  %100 = call float @llvm.fmuladd.f32(float %88, float %93, float %mul8.i13.i25.i.i)
+  %101 = call noundef float @llvm.fmuladd.f32(float %91, float %95, float %100)
+  %arrayidx2.i32.i.i = getelementptr inbounds i8, ptr %this, i64 644
+  %arrayidx7.i34.i.i = getelementptr inbounds i8, ptr %this, i64 660
+  %arrayidx12.i36.i.i = getelementptr inbounds i8, ptr %this, i64 676
+  %102 = load float, ptr %arrayidx2.i32.i.i, align 4
+  %103 = load float, ptr %arrayidx7.i34.i.i, align 4
+  %104 = load float, ptr %arrayidx12.i36.i.i, align 4
+  %105 = load float, ptr %m_worldTransform.i1.i, align 4
+  %arrayidx5.i.i42.i.i = getelementptr inbounds i8, ptr %74, i64 12
+  %106 = load float, ptr %arrayidx5.i.i42.i.i, align 4
+  %mul8.i.i44.i.i = fmul float %103, %106
+  %107 = call float @llvm.fmuladd.f32(float %105, float %102, float %mul8.i.i44.i.i)
+  %arrayidx10.i.i45.i.i = getelementptr inbounds i8, ptr %74, i64 16
+  %108 = load float, ptr %arrayidx10.i.i45.i.i, align 4
+  %109 = call noundef float @llvm.fmuladd.f32(float %108, float %104, float %107)
+  %arrayidx.i.i47.i.i = getelementptr inbounds i8, ptr %74, i64 24
+  %110 = load float, ptr %arrayidx.i.i47.i.i, align 4
+  %arrayidx5.i5.i48.i.i = getelementptr inbounds i8, ptr %74, i64 28
+  %111 = load float, ptr %arrayidx5.i5.i48.i.i, align 4
+  %mul8.i7.i49.i.i = fmul float %103, %111
+  %112 = call float @llvm.fmuladd.f32(float %110, float %102, float %mul8.i7.i49.i.i)
+  %arrayidx10.i8.i50.i.i = getelementptr inbounds i8, ptr %74, i64 32
+  %113 = load float, ptr %arrayidx10.i8.i50.i.i, align 4
+  %114 = call noundef float @llvm.fmuladd.f32(float %113, float %104, float %112)
+  %arrayidx.i10.i51.i.i = getelementptr inbounds i8, ptr %74, i64 40
+  %115 = load float, ptr %arrayidx.i10.i51.i.i, align 4
+  %arrayidx5.i11.i52.i.i = getelementptr inbounds i8, ptr %74, i64 44
+  %116 = load float, ptr %arrayidx5.i11.i52.i.i, align 4
+  %mul8.i13.i53.i.i = fmul float %103, %116
+  %117 = call float @llvm.fmuladd.f32(float %115, float %102, float %mul8.i13.i53.i.i)
+  %arrayidx10.i14.i54.i.i = getelementptr inbounds i8, ptr %74, i64 48
+  %118 = load float, ptr %arrayidx10.i14.i54.i.i, align 4
+  %119 = call noundef float @llvm.fmuladd.f32(float %118, float %104, float %117)
+  %mul8.i.i.i = fmul float %87, %114
+  %120 = call float @llvm.fmuladd.f32(float %109, float %82, float %mul8.i.i.i)
+  %121 = call noundef float @llvm.fmuladd.f32(float %119, float %92, float %120)
+  %mul8.i64.i.i = fmul float %99, %114
+  %122 = call float @llvm.fmuladd.f32(float %109, float %97, float %mul8.i64.i.i)
+  %123 = call noundef float @llvm.fmuladd.f32(float %119, float %101, float %122)
+  %call.i.i.i = call noundef float @atan2f(float noundef %121, float noundef %123) #20
+  %m_referenceSign.i.i = getelementptr inbounds i8, ptr %this, i64 756
+  %124 = load float, ptr %m_referenceSign.i.i, align 4
+  %mul.i.i120 = fmul float %call.i.i.i, %124
+  %125 = load float, ptr %targetAngle.addr.i, align 4
+  %sub.i = fsub float %125, %mul.i.i120
+  %div.i121 = fdiv float %sub.i, %dt
+  %m_motorTargetVelocity.i = getelementptr inbounds i8, ptr %this, i64 704
+  store float %div.i121, ptr %m_motorTargetVelocity.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %targetAngle.addr.i)
   ret void
 }
 
