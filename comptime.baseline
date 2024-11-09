@@ -10197,7 +10197,7 @@ hyperscan/asserts.cpp.ll 1536504472
 hyperscan/bad_patterns.cpp.ll 1531808911
 hyperscan/behaviour.cpp.ll 6378057789
 hyperscan/block.c.ll 890080738
-hyperscan/buildstate.cpp.ll 1881162050
+hyperscan/buildstate.cpp.ll 1883043367
 hyperscan/castle.c.ll 5547254821
 hyperscan/castlecompile.cpp.ll 5030749613
 hyperscan/catchup.c.ll 2590116358
@@ -18781,7 +18781,7 @@ ncnn/sigmoid.cpp.ll 63432876
 ncnn/sigmoid_x86.cpp.ll 89715192
 ncnn/sigmoid_x86_avx.cpp.ll 103378178
 ncnn/sigmoid_x86_avx512.cpp.ll 127769765
-ncnn/sigmoid_x86_fma.cpp.ll 101978501
+ncnn/sigmoid_x86_fma.cpp.ll 102080480
 ncnn/slice.cpp.ll 386722984
 ncnn/slice_x86.cpp.ll 539895916
 ncnn/slice_x86_avx.cpp.ll 769710922
@@ -24814,7 +24814,7 @@ openmpi/libmpi_c_profile_la-type_create_resized.ll 65812478
 openmpi/libmpi_c_profile_la-type_create_struct.ll 76594102
 openmpi/libmpi_c_profile_la-type_create_subarray.ll 81749795
 openmpi/libmpi_c_profile_la-type_dup.ll 89074100
-openmpi/libmpi_c_profile_la-type_f2c.ll 45985698
+openmpi/libmpi_c_profile_la-type_f2c.ll 46031808
 openmpi/libmpi_c_profile_la-type_get_envelope.ll 64838179
 openmpi/libmpi_c_profile_la-type_indexed.ll 73349904
 openmpi/libmpi_c_profile_la-type_vector.ll 66098503
@@ -27057,7 +27057,7 @@ openssl/sha_test-bin-sha_test.ll 57500707
 openssl/sm2_internal_test-bin-sm2_internal_test.ll 113224158
 openssl/sparse_array_test-bin-sparse_array_test.ll 97130722
 openssl/srptest-bin-srptest.ll 73607896
-openssl/ssl_cert_table_internal_test-bin-ssl_cert_table_internal_test.ll 44614896
+openssl/ssl_cert_table_internal_test-bin-ssl_cert_table_internal_test.ll 44659526
 openssl/ssl_ctx_test-bin-ssl_ctx_test.ll 48533099
 openssl/ssl_handshake_rtt_test-bin-ssltestlib.ll 437851715
 openssl/ssl_old_test-bin-predefined_dhparams.ll 55526725
