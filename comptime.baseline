@@ -11270,7 +11270,7 @@ libjpeg-turbo/jcprepct.c.ll 166585268
 libjpeg-turbo/jcsample.c.ll 294882841
 libjpeg-turbo/jcstest.c.ll 40578667
 libjpeg-turbo/jctrans.c.ll 165579922
-libjpeg-turbo/jdapimin.c.ll 98691123
+libjpeg-turbo/jdapimin.c.ll 98789827
 libjpeg-turbo/jdapistd.c.ll 286109316
 libjpeg-turbo/jdarith.c.ll 367401609
 libjpeg-turbo/jdatadst-tj.c.ll 55010571
@@ -13422,7 +13422,7 @@ linux/nf_conntrack_netlink.ll 669928289
 linux/nf_conntrack_proto_icmp.ll 83605078
 linux/nf_conntrack_proto_icmpv6.ll 95340742
 linux/nf_conntrack_proto_tcp.ll 340634405
-linux/nf_conntrack_proto_udp.ll 54263839
+linux/nf_conntrack_proto_udp.ll 54318170
 linux/nf_conntrack_reasm.ll 217407845
 linux/nf_conntrack_sip.ll 785443797
 linux/nf_conntrack_standalone.ll 68397011
@@ -16095,7 +16095,7 @@ llvm/SourceLocation.cpp.ll 433204330
 llvm/SourceManager.cpp.ll 5826198538
 llvm/SourceMgr.cpp.ll 1594661914
 llvm/SourceMgrAdapter.cpp.ll 698991088
-llvm/Sparc.cpp.ll 674330609
+llvm/Sparc.cpp.ll 675005079
 llvm/SpecialCaseList.cpp.ll 1520209793
 llvm/SpeculativeExecution.cpp.ll 930346694
 llvm/SpillPlacement.cpp.ll 605300017
