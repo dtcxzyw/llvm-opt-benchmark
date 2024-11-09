@@ -618,7 +618,7 @@ abc/intDup.c.ll 151200006
 abc/intMan.c.ll 92486155
 abc/intUtil.c.ll 67594305
 abc/io.c.ll 909745833
-abc/ioJson.c.ll 278000486
+abc/ioJson.c.ll 278278521
 abc/ioReadAiger.c.ll 419801830
 abc/ioReadBaf.c.ll 157536360
 abc/ioReadBblif.c.ll 190869589
@@ -20238,7 +20238,7 @@ oniguruma/utf16_be.ll 80092157
 oniguruma/utf16_le.ll 80258274
 oniguruma/utf8.ll 80071122
 openblas/blas_server.c.ll 152083096
-openblas/cblas_daxpy.c.ll 41804409
+openblas/cblas_daxpy.c.ll 41846311
 openblas/cblas_dgemm.c.ll 77116517
 openblas/cblas_dgemmt.c.ll 135666836
 openblas/cblas_dimatcopy.c.ll 68309209
@@ -38632,7 +38632,7 @@ yalantinglibs/user_defined_serialization.cpp.ll 508859986
 yalantinglibs/wrappers.struct_pb.cc.ll 1289787442
 yaml-cpp/binary.cpp.ll 175211493
 yaml-cpp/convert.cpp.ll 283139565
-yaml-cpp/depthguard.cpp.ll 50998690
+yaml-cpp/depthguard.cpp.ll 51049700
 yaml-cpp/emit.cpp.ll 128623536
 yaml-cpp/emitfromevents.cpp.ll 262880174
 yaml-cpp/emitter.cpp.ll 425362234
