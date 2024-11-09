@@ -5856,7 +5856,7 @@ cvc5/uf_options.cpp.ll 78252677
 cvc5/unconstrained_simplifier.cpp.ll 3045474885
 cvc5/uninterpreted_sort_value.cpp.ll 106473689
 cvc5/unsat_core.cpp.ll 238301540
-cvc5/unsat_core_manager.cpp.ll 2186643893
+cvc5/unsat_core_manager.cpp.ll 2184457228
 cvc5/util.cpp.ll 175717538
 cvc5/utility.cpp.ll 88620805
 cvc5/valuation.cpp.ll 150554724
