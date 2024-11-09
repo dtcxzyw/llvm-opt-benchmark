@@ -5236,7 +5236,7 @@ curl/libcurl_la-smtp.ll 532250211
 curl/libcurl_la-socks.ll 544428862
 curl/libcurl_la-splay.ll 129541393
 curl/libcurl_la-strcase.ll 91814503
-curl/libcurl_la-telnet.ll 615959069
+curl/libcurl_la-telnet.ll 615343010
 curl/libcurl_la-tftp.ll 321207667
 curl/libcurl_la-transfer.ll 479182754
 curl/libcurl_la-url.ll 1210050571
@@ -24139,7 +24139,7 @@ openmpi/accelerator_null_component.ll 72561735
 openmpi/ad_aggregate.ll 239876018
 openmpi/ad_aggregate_new.ll 100122211
 openmpi/ad_close.ll 51128347
-openmpi/ad_coll_build_req_new.ll 947246874
+openmpi/ad_coll_build_req_new.ll 946295683
 openmpi/ad_coll_exch_new.ll 143583991
 openmpi/ad_darray.ll 138659173
 openmpi/ad_fstype.ll 99926315
