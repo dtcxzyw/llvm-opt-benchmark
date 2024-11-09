@@ -1323,7 +1323,7 @@ actix-rs/2ltm6szalsytk9dh.ll 1014417215
 actix-rs/2m9lq42maoywd5kd.ll 528578203
 actix-rs/2nm6r5hc2u1hk1e1.ll 2388769511
 actix-rs/2o6s6qtmif526itx.ll 1870042134
-actix-rs/2p9yk5hk6n8dqugm.ll 74914546
+actix-rs/2p9yk5hk6n8dqugm.ll 74989588
 actix-rs/2pgtlhl4qd060m9c.ll 2280484690
 actix-rs/2png79mhk1ofnc6m.ll 148616889
 actix-rs/2vc5a7699k03y0it.ll 219960279
@@ -17151,7 +17151,7 @@ lvgl/lv_svg_render.ll 755500645
 lvgl/lv_svg_token.ll 213378006
 lvgl/lv_switch.ll 101100315
 lvgl/lv_table.ll 521122471
-lvgl/lv_tabview.ll 95335597
+lvgl/lv_tabview.ll 95431091
 lvgl/lv_text.ll 383967544
 lvgl/lv_textarea.ll 383417791
 lvgl/lv_theme.ll 56298129
@@ -24660,7 +24660,7 @@ openmpi/libmpi_c_profile_la-graph_map.ll 74379167
 openmpi/libmpi_c_profile_la-graph_neighbors.ll 75949691
 openmpi/libmpi_c_profile_la-graph_neighbors_count.ll 74707269
 openmpi/libmpi_c_profile_la-graphdims_get.ll 72070838
-openmpi/libmpi_c_profile_la-grequest_complete.ll 42211160
+openmpi/libmpi_c_profile_la-grequest_complete.ll 42253410
 openmpi/libmpi_c_profile_la-grequest_start.ll 61104055
 openmpi/libmpi_c_profile_la-group_difference.ll 64009236
 openmpi/libmpi_c_profile_la-group_excl.ll 75976390
