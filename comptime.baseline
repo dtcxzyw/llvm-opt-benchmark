@@ -8504,7 +8504,7 @@ gromacs/gmx_tcaf.cpp.ll 577663128
 gromacs/gmx_traj.cpp.ll 1171144281
 gromacs/gmx_trjorder.cpp.ll 341884389
 gromacs/gmx_vanhove.cpp.ll 684155099
-gromacs/gmx_velacc.cpp.ll 327845689
+gromacs/gmx_velacc.cpp.ll 328173560
 gromacs/gmx_wham.cpp.ll 3308125476
 gromacs/gmx_wheel.cpp.ll 291881299
 gromacs/gmx_xpm2ps.cpp.ll 2717937618
