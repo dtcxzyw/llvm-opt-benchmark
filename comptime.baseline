@@ -24378,7 +24378,7 @@ openmpi/common_monitoring_coll.ll 158326531
 openmpi/common_ompio_aggregators.ll 529739283
 openmpi/common_ompio_buffer.ll 74231899
 openmpi/common_ompio_file_open.ll 174830356
-openmpi/common_ompio_file_read.ll 274606636
+openmpi/common_ompio_file_read.ll 274881282
 openmpi/common_ompio_file_read_all.ll 473849286
 openmpi/common_ompio_file_view.ll 209157928
 openmpi/common_ompio_file_write.ll 248766636
@@ -33710,7 +33710,7 @@ slurm/gpu_nrt.ll 161059913
 slurm/gpu_nvml.ll 790484406
 slurm/gres.ll 5440358993
 slurm/gres_c_s.ll 226773938
-slurm/gres_common.ll 133300579
+slurm/gres_common.ll 133433981
 slurm/gres_ctld.ll 1356578109
 slurm/gres_filter.ll 457633070
 slurm/gres_gpu.ll 293656364
