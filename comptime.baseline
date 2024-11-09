@@ -3204,7 +3204,7 @@ clamav/textnorm.c.ll 70520120
 clamav/thread.c.ll 133489036
 clamav/thrmgr.c.ll 274755940
 clamav/tiff.c.ll 103542668
-clamav/timefn.cpp.ll 93795073
+clamav/timefn.cpp.ll 93888894
 clamav/tnef.c.ll 155066453
 clamav/udf.c.ll 436894004
 clamav/unarj.c.ll 1383609237
