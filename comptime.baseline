@@ -14602,7 +14602,7 @@ llvm/Coroutines.cpp.ll 1435435126
 llvm/CorrelatedValuePropagation.cpp.ll 3391999822
 llvm/CostModel.cpp.ll 696388106
 llvm/CountVisits.cpp.ll 132812174
-llvm/CoverageMapping.cpp.ll 10961051343
+llvm/CoverageMapping.cpp.ll 10972030268
 llvm/CoverageMappingGen.cpp.ll 7712020900
 llvm/CoverageMappingReader.cpp.ll 10981623796
 llvm/CoverageMappingWriter.cpp.ll 1074992160
