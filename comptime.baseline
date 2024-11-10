@@ -8730,7 +8730,7 @@ gromacs/muParserTest.cpp.ll 2552990714
 gromacs/muParserTokenReader.cpp.ll 2013540004
 gromacs/multipletimestepping.cpp.ll 587476838
 gromacs/multisim.cpp.ll 391282520
-gromacs/nb_free_energy.cpp.ll 38685340799
+gromacs/nb_free_energy.cpp.ll 38724040141
 gromacs/nbnxm.cpp.ll 378173747
 gromacs/nbnxm_geometry.cpp.ll 47370294
 gromacs/nbnxm_setup.cpp.ll 730375014
